@@ -25,7 +25,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         return playerdata;
     }
 
-    void SetHP(int hp)
+    public void SetHP(int hp)
     {
         playerdata.hp = hp;
         UpdateUI();
@@ -39,17 +39,20 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
     void UpdateUI()
     {
-        updatestate(playerdata); 
+        if(updatestate != null)
+            updatestate(playerdata); 
     }
 
     void UpdateItem()
     {
-        updateitem(playerdata);
+        if (updateitem != null)
+            updateitem(playerdata);
     }
 
     void UpdateSkill()
     {
-        updateskill(playerdata);
+        if (updateskill != null)
+            updateskill(playerdata);
     }
 
 
