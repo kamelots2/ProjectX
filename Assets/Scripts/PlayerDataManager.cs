@@ -34,7 +34,6 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     public void Init()
     {
         playerdata = new PlayerData();
-        SetHP(10);
     }
 
     void UpdateUI()
