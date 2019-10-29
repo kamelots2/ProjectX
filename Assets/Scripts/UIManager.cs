@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         InitUIManager();
+
+        SetButton(5);
     }
 
     // Update is called once per frame

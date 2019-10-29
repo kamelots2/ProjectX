@@ -14,7 +14,7 @@ public class ClickButton : MonoBehaviour
     private float time = 2;
     private bool bIsPerfect;
     [SerializeField]
-    private GameObject root;
+    private GameObject root = null;
 
     public bool IsVisible()
     {
@@ -24,11 +24,6 @@ public class ClickButton : MonoBehaviour
     public bool IsPerfect()
     {
         return bIsPerfect;
-    }
-
-    void Start()
-    {
-        //Init(1);
     }
 
     public void Init(float perfecttime, float showtime)
