@@ -1,0 +1,77 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ClickButton : MonoBehaviour
+{
+    // Start is called before the first frame update
+    [SerializeField]
+    GameObject img = null;
+    private bool bIsVisible;
+    private float perfecttime;
+    private float showtime;
+    [SerializeField]
+    private float time = 2;
+    private bool bIsPerfect;
+    [SerializeField]
+    private GameObject root;
+
+    public bool IsVisible()
+    {
+        return bIsVisible;
+    }
+
+    public bool IsPerfect()
+    {
+        return bIsPerfect;
+    }
+
+    void Start()
+    {
+        //Init(1);
+    }
+
+    public void Init(float perfecttime, float showtime)
+    {
+        this.showtime = showtime;
+        this.perfecttime = perfecttime;
+        bIsVisible = true;
+        bIsPerfect = false;
+        gameObject.SetActive(true);
+        root.SetActive(false);
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!bIsVisible)
+        {
+            return;
+        }
+        if(showtime > 0)
+        {
+            showtime -= Time.deltaTime;
+            return;
+        }
+        if (!root.activeSelf)
+            root.SetActive(true);
+        time -= Time.deltaTime;
+        img.transform.localScale = Vector3.one * time;
+        if (time <= 1f - perfecttime)
+            Press();
+    }
+
+    public void Press()
+    {
+        gameObject.SetActive(false);
+        bIsVisible = false;
+        if(time > 1f - perfecttime&&time < 1f+perfecttime)
+        {
+            bIsPerfect = true;
+        }else
+        {
+            bIsPerfect = false;
+        }
+    }
+}
