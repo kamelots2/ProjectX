@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     {
         InitUIManager();
 
-        SetButton(5);
+        SetButton(-10);
     }
 
     // Update is called once per frame
@@ -46,12 +46,11 @@ public class UIManager : MonoBehaviour
     void GetButton(int n)
     {
         lButton.Clear();
-        for (int i = BtnNum - 1; i >= 0; i--)
+        if (n > BtnNum||n <= 0)
+            n = BtnNum;
+        for (int i = BtnNum - 1; n > 0; i--, n--)
         {
-            lButton.Add(lButtonPool[i]);
-            n--;
-            if (n == 0)
-                break;         
+            lButton.Add(lButtonPool[i]);       
         }
     }
     

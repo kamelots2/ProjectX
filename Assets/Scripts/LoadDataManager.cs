@@ -13,6 +13,7 @@ public class LoadDataManager
 {
     void Start()
     {
+        
     }
 
     public static void XLSX(string filename, List<List<int> > dataList)

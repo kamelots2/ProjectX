@@ -22,7 +22,7 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
     public UpdateState_DG updatestate;  
     public UpdateSkill_DG updateskill;
     public UpdateItem_DG updateitem;
-    PlayerData GetPlayerData()
+    public PlayerData GetPlayerData()
     {
         return playerdata;
     }
