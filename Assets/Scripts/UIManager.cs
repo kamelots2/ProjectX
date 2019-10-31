@@ -6,9 +6,9 @@ public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    GameObject btnpf = null;
+    GameObject clickbtn = null;
     [SerializeField]
-    GameObject canvas = null;
+    GameObject choosebtn = null;
     private List<GameObject> lButton = new List<GameObject>();
     private List<GameObject> lButtonPool = new List<GameObject>();
     private int BtnNum = 5;
@@ -23,15 +23,21 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.anyKeyDown)
+        {
+            //ShowChooseButton();
+        }
     }
 
     void InitUIManager()
     {
-        for(int i=0;i< BtnNum; i++)
+        //init time 
+        //choosebtn.SetActive(false);
+
+        for (int i=0;i< BtnNum; i++)
         {
-            GameObject prefab = (GameObject)Instantiate(btnpf);
-            prefab.transform.SetParent(canvas.transform, false);
+            GameObject prefab = (GameObject)Instantiate(clickbtn);
+            prefab.transform.SetParent(gameObject.transform, false);
             prefab.SetActive(false);
             lButtonPool.Add(prefab);
         }
@@ -56,8 +62,14 @@ public class UIManager : MonoBehaviour
         //set button parameter
         for(int i=0;i<lButton.Count;i++)
         {
-            lButton[i].GetComponent<ClickButton>().Init(0.2f, 1+i*0.5f);
+            lButton[i].GetComponent<ClickButton>().Init(0.1f, 0+i*0.5f);
             lButton[i].transform.position = new Vector3(300+i*100, 400, 0);
         }
+    }
+
+    void ShowChooseButton()
+    {
+        //choosebtn.SetActive(true);
+        ((Animator)choosebtn.GetComponent<Animator>()).Play("New State");
     }
 }

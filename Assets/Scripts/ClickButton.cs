@@ -7,6 +7,8 @@ public class ClickButton : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField]
     GameObject img = null;
+    [SerializeField]
+    GameObject perfectimg = null;
     private bool bIsVisible;
     private float perfecttime;
     private float showtime;
@@ -30,11 +32,12 @@ public class ClickButton : MonoBehaviour
     {
         this.showtime = showtime;
         this.perfecttime = perfecttime;
+        time = 2;
         bIsVisible = true;
         bIsPerfect = false;
         gameObject.SetActive(true);
         root.SetActive(false);
-        
+        perfectimg.transform.localScale = Vector3.one * (1f + perfecttime);
     }
 
     // Update is called once per frame

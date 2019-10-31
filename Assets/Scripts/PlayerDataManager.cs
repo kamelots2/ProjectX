@@ -5,11 +5,13 @@ public class PlayerData
 {
    public PlayerData()
     {
-        hp = 100;
-        def = 100;
+        hp = 500;
+        def = 10;
+        atk = 15;
     }
     public int hp;
     public int def;
+    public int atk;
 }
 public class PlayerDataManager : Singleton<PlayerDataManager>
 {
