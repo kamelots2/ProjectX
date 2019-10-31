@@ -67,6 +67,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    bool IsPerfect()
+    {
+        for (int i = 0; i < lButton.Count; i++)
+        {
+            if(!lButton[i].GetComponent<ClickButton>().IsPerfect())
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     void ShowChooseButton()
     {
         //choosebtn.SetActive(true);
