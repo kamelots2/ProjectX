@@ -5,17 +5,20 @@ public class PlayerData
 {
    public PlayerData()
     {
-        hp = 500;
+        hp = 400;
+        maxhp = 500;
         def = 10;
         atk = 15;
     }
     public int hp;
     public int def;
     public int atk;
+    public int maxhp;
 }
+
 public class PlayerDataManager : Singleton<PlayerDataManager>
 {
-    PlayerData playerdata;
+    PlayerData playerdata = new PlayerData();
     public delegate void UpdateState_DG(PlayerData param);
     public delegate void UpdateSkill_DG(PlayerData param);
     public delegate void UpdateItem_DG(PlayerData param);
@@ -29,7 +32,9 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
 
     public void SetHP(int hp)
     {
-        playerdata.hp = hp;
+        playerdata.hp -= hp;
+        if (playerdata.hp < 0)
+            playerdata.hp = 0;
         UpdateUI();
     }
 

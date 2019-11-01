@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class UIManager : MonoBehaviour
     GameObject clickbtn = null;
     [SerializeField]
     GameObject choosebtn = null;
+    [SerializeField]
+    Slider  splayerhp = null;
+    [SerializeField]
+    Slider  sbosshp = null;
     private List<GameObject> lButton = new List<GameObject>();
     private List<GameObject> lButtonPool = new List<GameObject>();
     private int BtnNum = 5;
@@ -16,8 +21,10 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         InitUIManager();
-
-        SetButton(3);
+        //SetButton(3);
+        PlayerDataManager.Instance.updatestate += UpdateUIForPlayer;
+        UpdateUIForPlayer(PlayerDataManager.Instance.GetPlayerData());
+        sbosshp.value = 0;
     }
 
     // Update is called once per frame
@@ -82,5 +89,10 @@ public class UIManager : MonoBehaviour
     {
         //choosebtn.SetActive(true);
         ((Animator)choosebtn.GetComponent<Animator>()).Play("New State");
+    }
+
+    void UpdateUIForPlayer(PlayerData data)
+    {
+        splayerhp.value = (float)data.hp / (float)data.maxhp;
     }
 }
