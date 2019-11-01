@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     {
         InitUIManager();
 
-        SetButton(-10);
+        SetButton(3);
     }
 
     // Update is called once per frame
