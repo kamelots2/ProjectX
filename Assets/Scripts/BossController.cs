@@ -35,7 +35,7 @@ public class BossController : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            Attack(true);
+            Attack(false);
         }
     }
 
@@ -44,6 +44,7 @@ public class BossController : MonoBehaviour
         if(b)
         {
             iTween.MoveTo(gameObject, iTween.Hash("x", 0.65f, "z", -9f, "time", 1f));
+
             iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 1f));
         }else
         {
