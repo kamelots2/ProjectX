@@ -35,7 +35,7 @@ public class BossController : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            Attack(false);
+            Attack(true);
         }
     }
 
