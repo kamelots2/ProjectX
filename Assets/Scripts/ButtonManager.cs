@@ -25,6 +25,6 @@ public class ButtonManager : MonoBehaviour
 
     public void Press(int type)
     {
-         //gameObject.p
+        //gameObject.p
     }
 }
