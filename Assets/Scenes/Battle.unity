@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -805,8 +805,9 @@ GameObject:
   - component: {fileID: 907275346}
   - component: {fileID: 907275345}
   - component: {fileID: 907275347}
+  - component: {fileID: 907275348}
   m_Layer: 0
-  m_Name: character1
+  m_Name: Princess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -884,7 +885,7 @@ Animator:
   m_GameObject: {fileID: 907275344}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2816a8b2f098a3943be38562a892f012, type: 2}
+  m_Controller: {fileID: 9100000, guid: 76266a1ac88d64e47bd1cc777711cd91, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -893,6 +894,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &907275348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907275344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c957f88d3ed71e8428c8a1634e4aa14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &993180063
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,8 +953,9 @@ GameObject:
   - component: {fileID: 1032240394}
   - component: {fileID: 1032240393}
   - component: {fileID: 1032240395}
+  - component: {fileID: 1032240396}
   m_Layer: 0
-  m_Name: character2
+  m_Name: Hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1019,7 +1033,7 @@ Animator:
   m_GameObject: {fileID: 1032240392}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2816a8b2f098a3943be38562a892f012, type: 2}
+  m_Controller: {fileID: 9100000, guid: b2c43834463488e4f9ea91cc686e4b66, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1028,6 +1042,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1032240396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032240392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3816d18bc8de91c4180082f321ff4611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1107134110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,8 +1692,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boss: {fileID: 1107134110}
-  PlayerM: {fileID: 907275344}
-  PlayerFM: {fileID: 1032240392}
+  PlayerM: {fileID: 1032240392}
+  PlayerFM: {fileID: 907275344}
 --- !u!4 &1683169654
 Transform:
   m_ObjectHideFlags: 0

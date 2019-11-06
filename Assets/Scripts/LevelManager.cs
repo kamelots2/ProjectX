@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.anyKeyDown)
+        {
+            Boss.GetComponent<BossController>().Attack(false);
+            PlayerM.GetComponent<HeroController>().Defense(true);
+        }
     }
 }
