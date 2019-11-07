@@ -81,10 +81,10 @@ public class LevelManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Boss.GetComponent<BossController>().bossattackevent -= BossAttackEvent;
-        Boss.GetComponent<BossController>().bossattackend -= BossAttackEnd;
-        Boss.GetComponent<BossController>().bossdead -= BossDeath;
-        Boss.GetComponent<BossController>().bosssayend -= SayEnd;
+        //Boss.GetComponent<BossController>().bossattackevent -= BossAttackEvent;
+        //Boss.GetComponent<BossController>().bossattackend -= BossAttackEnd;
+        //Boss.GetComponent<BossController>().bossdead -= BossDeath;
+        //Boss.GetComponent<BossController>().bosssayend -= SayEnd;
     }
 
 
