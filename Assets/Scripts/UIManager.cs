@@ -105,4 +105,9 @@ public class UIManager : MonoBehaviour
     {
         splayerhp.value = (float)data.hp / (float)data.maxhp;
     }
+
+    private void OnDestroy()
+    {
+        PlayerDataManager.Instance.updatestate -= UpdateUIForPlayer;
+    }
 }
