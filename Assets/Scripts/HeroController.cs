@@ -19,15 +19,19 @@ public class HeroController : MonoBehaviour
     public void Defense(bool b)
     {
         iTween.MoveTo(gameObject, iTween.Hash("x", 0.55f, "z", -8.99f, "time", 1f));
-        GetComponent<Animator>().SetBool("Idle", false);
-        GetComponent<Animator>().SetBool("Def", true);
+        SetDefense(b);
         iTween.MoveTo(gameObject, iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 1f));
     }
 
     void DefEnd()
     {
         Debug.Log("Hello, world!");
-        GetComponent<Animator>().SetBool("Idle", true);
-        GetComponent<Animator>().SetBool("Def", false);
+        SetDefense(false);
+    }
+
+    void SetDefense(bool bIsDefense)
+    {
+        GetComponent<Animator>().SetBool("Idle",!bIsDefense);
+        GetComponent<Animator>().SetBool("Def", bIsDefense);
     }
 }
