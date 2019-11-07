@@ -35,11 +35,11 @@ public class BossController : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            Attack(false);
+            //Attack(false);
         }
     }
 
-    void Attack(bool b)
+    public void Attack(bool b)
     {
         if(b)
         {
@@ -50,9 +50,6 @@ public class BossController : MonoBehaviour
         {
             iTween.MoveTo(gameObject, iTween.Hash("x", 0.25f, "z", -9f, "time", 1f));
             iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 1f));
-
-            iTween.MoveTo(GameObject.Find("character2"), iTween.Hash("x", 0.55f, "z", -8.99f, "time", 1f));
-            iTween.MoveTo(GameObject.Find("character2"), iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 1f));
         }
     }
 }
