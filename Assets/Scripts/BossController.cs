@@ -33,10 +33,8 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
-        {
-            //Attack(false);
-        }
+
+
     }
 
     public void Attack(bool b)
