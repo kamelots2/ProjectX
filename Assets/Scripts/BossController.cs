@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    public delegate void BossSayEnd_DG(int atk, bool bSkill);
+    public delegate void BossSayEnd_DG();
+    public delegate void BossAttackEvent_DG(int atk, bool bSkill);
+    public delegate void BossAttackEnd_DG();
+    public delegate void BossDead_DG();
     public delegate void UpdateBossHP_DG(float value);
-    public BossSayEnd_DG bosssayend;
     public UpdateBossHP_DG updatebosshp;
+    public BossSayEnd_DG bosssayend;
+    public BossAttackEvent_DG bossattackevent;
+    public BossAttackEnd_DG bossattackend;
+    public BossDead_DG bossdead;
 
     enum BossState
     {
@@ -79,12 +85,14 @@ public class BossController : MonoBehaviour
 
     void AttackEnd()
     {
-
+        if (bossattackend != null)
+            bossattackend();
     }
 
-    void AttackEvent()
+    void SayEnd()
     {
-
+        if (bosssayend != null)
+            bosssayend();
     }
 
     public void Say()
@@ -93,16 +101,17 @@ public class BossController : MonoBehaviour
         bIsSay = true;
     }
 
-    void SayEnd(bool skill)
+    void AttackEvent(bool skill)
     {
-        if (bosssayend != null)
-            bosssayend(skill?bossinfo.atk:bossinfo.hp, skill);
+        if (bossattackevent != null)
+            bossattackevent(skill?bossinfo.atk:bossinfo.hp, skill);
     }
 
 
     void BossDead()
     {
-        
+        if (bossdead != null)
+            bossdead();
     }
 
     void UpdateBossHP(float value)
