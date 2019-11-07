@@ -25,12 +25,12 @@ public class BossController : MonoBehaviour
         public int maxhp;
         public int atk;
     };
-    private BossState state = BossState.Plus;
+    //private BossState state = BossState.Plus;
     private BossInfo bossinfo = new BossInfo();
-    [SerializeField]
-    GameObject gMoveToPosT = null;
-    [SerializeField]
-    GameObject gMoveToPosF = null;
+    //[SerializeField]
+    //GameObject gMoveToPosT = null;
+    //[SerializeField]
+    //GameObject gMoveToPosF = null;
     private float sayTime = -1;
     private bool bIsSay = false;
     // Start is called before the first frame update

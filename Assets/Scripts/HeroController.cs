@@ -19,13 +19,13 @@ public class HeroController : MonoBehaviour
     public void Defense(bool b)
     {
         iTween.MoveTo(gameObject, iTween.Hash("x", 0.55f, "z", -8.99f, "time", 1f));
-        SetDefense(b);
+        //SetDefense(b);
         iTween.MoveTo(gameObject, iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 1f));
     }
 
     void DefEnd()
     {
-        Debug.Log("Hello, world!");
+        //Debug.Log("Hello, world!");
         SetDefense(false);
     }
 

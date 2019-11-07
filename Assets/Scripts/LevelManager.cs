@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
         Boss.GetComponent<BossController>().bossattackend += BossAttackEnd;
         Boss.GetComponent<BossController>().bossdead += BossDeath;
         Boss.GetComponent<BossController>().bosssayend += SayEnd;
+        Boss.GetComponent<BossController>().Say();
     }
 
     // Update is called once per frame
@@ -55,12 +56,10 @@ public class LevelManager : MonoBehaviour
         {
             PlayerFM.GetComponent<PrincessController>().ChangeState();
             PlayerHp= PlayerDataManager.Instance.GetPlayerData().hp-atk;
-        
         }
         else
         {
             PlayerHp = PlayerDataManager.Instance.GetPlayerData().hp - atk+PlayerDataManager.Instance.GetPlayerData().def;
-
         }
         PlayerDataManager.Instance.SetHP(PlayerHp);
 
