@@ -19,7 +19,10 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        
+        Boss.GetComponent<BossController>().bossattackevent += BossAttackEvent;
+        Boss.GetComponent<BossController>().bossattackend += BossAttackEnd;
+        Boss.GetComponent<BossController>().bossdead += BossDeath;
+        Boss.GetComponent<BossController>().bosssayend += SayEnd;
     }
 
     // Update is called once per frame
@@ -65,7 +68,7 @@ public class LevelManager : MonoBehaviour
 
     public void BossAttackEnd()
     {
-        
+        Boss.GetComponent<BossController>().Say();
     }
 
 
@@ -77,7 +80,13 @@ public class LevelManager : MonoBehaviour
 
 
 
-
+    private void OnDestroy()
+    {
+        Boss.GetComponent<BossController>().bossattackevent -= BossAttackEvent;
+        Boss.GetComponent<BossController>().bossattackend -= BossAttackEnd;
+        Boss.GetComponent<BossController>().bossdead -= BossDeath;
+        Boss.GetComponent<BossController>().bosssayend -= SayEnd;
+    }
 
 
 }
