@@ -58,7 +58,8 @@ public class BossController : MonoBehaviour
             sayTime -= Time.deltaTime;
             if (sayTime < 0)
             {
-                SayEnd(bIsSay = false);
+                bIsSay = false;
+                SayEnd();
             }
         }
     }
