@@ -16,7 +16,7 @@ public class PrincessController : MonoBehaviour
         
     }
 
-    void ChangeState()
+   public  void ChangeState()
     {
 
     }

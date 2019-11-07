@@ -17,6 +17,10 @@ public class UIManager : MonoBehaviour
     private List<GameObject> lButton = new List<GameObject>();
     private List<GameObject> lButtonPool = new List<GameObject>();
     private int BtnNum = 5;
+    [SerializeField]
+    GameObject LeftTop;
+    [SerializeField]
+    GameObject RightDown;
 
     private void Start()
     {
@@ -25,6 +29,7 @@ public class UIManager : MonoBehaviour
         PlayerDataManager.Instance.updatestate += UpdateUIForPlayer;
         UpdateUIForPlayer(PlayerDataManager.Instance.GetPlayerData());
         sbosshp.value = 0;
+
     }
 
     // Update is called once per frame
@@ -62,18 +67,23 @@ public class UIManager : MonoBehaviour
     }
     
 
-    void SetButton(int n)
+    public void SetButton(int n)
     {
         GetButton(n);
         //set button parameter
         for(int i=0;i<lButton.Count;i++)
         {
+
+            float x = Random.Range(LeftTop.transform.position.x, RightDown.transform.position.x);
+            float y = Random.Range(LeftTop.transform.position.y, RightDown.transform.position.y);
+
+
             lButton[i].GetComponent<ClickButton>().Init(0.1f, 0+i*0.5f);
-            lButton[i].transform.position = new Vector3(300+i*100, 400, 0);
+            lButton[i].transform.position = new Vector3(x, y, 0);
         }
     }
 
-    bool IsPerfect()
+    public bool IsPerfect()
     {
         for (int i = 0; i < lButton.Count; i++)
         {
