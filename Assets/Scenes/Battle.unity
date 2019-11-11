@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 5141003537998239700, guid: 39b3785a4dc8f224783641b42ebe510f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1279068172058579133, guid: 39b3785a4dc8f224783641b42ebe510f,
         type: 3}
@@ -244,15 +244,35 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 927603366255230754, guid: 39b3785a4dc8f224783641b42ebe510f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 927603366255230754, guid: 39b3785a4dc8f224783641b42ebe510f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 927603366255230754, guid: 39b3785a4dc8f224783641b42ebe510f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -146.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 927603366255230754, guid: 39b3785a4dc8f224783641b42ebe510f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 91.9
+      objectReference: {fileID: 0}
     - target: {fileID: 1647763913036332712, guid: 39b3785a4dc8f224783641b42ebe510f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -63.800003
+      value: -150.9
       objectReference: {fileID: 0}
     - target: {fileID: 1647763913036332712, guid: 39b3785a4dc8f224783641b42ebe510f,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.199997
+      value: 14.2
       objectReference: {fileID: 0}
     - target: {fileID: 1647763913036332712, guid: 39b3785a4dc8f224783641b42ebe510f,
         type: 3}
@@ -268,6 +288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400372168449796564, guid: 39b3785a4dc8f224783641b42ebe510f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -143.6
       objectReference: {fileID: 0}
     - target: {fileID: 2162520922001755873, guid: 39b3785a4dc8f224783641b42ebe510f,
         type: 3}
@@ -318,6 +343,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009615854188244505, guid: 39b3785a4dc8f224783641b42ebe510f,
+        type: 3}
+      propertyPath: m_Text
+      value: 5444444444444444444444444444444444
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39b3785a4dc8f224783641b42ebe510f, type: 3}
@@ -1543,7 +1573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -189}
+  m_AnchoredPosition: {x: 0, y: -169}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1437982500
@@ -1566,9 +1596,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'text
-
-    111111111111111111111111111111111111111111111'
+  m_text: 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1596,8 +1624,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1637,12 +1665,12 @@ MonoBehaviour:
   m_margin: {x: -92.856636, y: -87.58826, z: -107.790146, w: 12.954632}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 50
+    characterCount: 94
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 3
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
