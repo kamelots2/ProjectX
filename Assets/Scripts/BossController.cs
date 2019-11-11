@@ -13,7 +13,6 @@ public class BossController : MonoBehaviour
     public BossSayEnd_DG bosssayend;
     public BossAttackEvent_DG bossattackevent;
     public BossAttackEnd_DG bossattackend;
-    public BossDead_DG bossdead;
 
     enum BossState
     {
@@ -35,6 +34,7 @@ public class BossController : MonoBehaviour
     private float sayTime = -1;
     private bool bIsSay = false;
     private bool bIsSkill = false;
+    private bool bIsDead = false;
     BossState state = BossState.Plus;
     // Start is called before the first frame update
     void Start()
@@ -124,11 +124,10 @@ public class BossController : MonoBehaviour
 
     void AttackEnd()
     {
-        if (bossattackend != null)
-            bossattackend();
         if (state == BossState.Minus && bossinfo.curHp == 0)
             BossDead();
-       
+        if (bossattackend != null)
+            bossattackend();  
     }
 
     void SayEnd()
@@ -160,5 +159,10 @@ public class BossController : MonoBehaviour
     {
         if (updatebosshp != null)
             updatebosshp(value);
+    }
+
+    public bool IsDead()
+    {
+        return bIsDead;
     }
 }

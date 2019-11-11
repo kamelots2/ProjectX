@@ -21,7 +21,6 @@ public class LevelManager : MonoBehaviour
     {
         Boss.GetComponent<BossController>().bossattackevent += BossAttackEvent;
         Boss.GetComponent<BossController>().bossattackend += BossAttackEnd;
-        Boss.GetComponent<BossController>().bossdead += BossDeath;
         Boss.GetComponent<BossController>().bosssayend += SayEnd;
         Boss.GetComponent<BossController>().Say();
     }
@@ -67,14 +66,8 @@ public class LevelManager : MonoBehaviour
 
     public void BossAttackEnd()
     {
-        Boss.GetComponent<BossController>().Say();
-    }
-
-
-    public void BossDeath()
-    {
-        
-
+        if (Boss.GetComponent<BossController>().IsDead())
+            Boss.GetComponent<BossController>().Say();
     }
 
 
