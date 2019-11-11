@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
         PlayerDataManager.Instance.updatestate += UpdateUIForPlayer;
         UpdateUIForPlayer(PlayerDataManager.Instance.GetPlayerData());
         sbosshp.value = 0;
+        GameObject.Find("Boss").GetComponent<BossController>().updatebosshp += UpdateUIForBoss;
 
     }
 
@@ -104,6 +105,11 @@ public class UIManager : MonoBehaviour
     void UpdateUIForPlayer(PlayerData data)
     {
         splayerhp.value = (float)data.hp / (float)data.maxhp;
+    }
+
+    void UpdateUIForBoss(float bossValue)
+    {
+        sbosshp.value = bossValue;
     }
 
     private void OnDestroy()

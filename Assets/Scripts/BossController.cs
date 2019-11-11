@@ -21,6 +21,7 @@ public class BossController : MonoBehaviour
         Minus,
     }
     struct BossInfo{
+        public int curHp;
         public int hp;
         public int maxhp;
         public int atk;
@@ -33,6 +34,8 @@ public class BossController : MonoBehaviour
     //GameObject gMoveToPosF = null;
     private float sayTime = -1;
     private bool bIsSay = false;
+    private bool bIsSkill = false;
+    BossState state = BossState.Plus;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +51,8 @@ public class BossController : MonoBehaviour
         bossinfo.maxhp = 100;
         bossinfo.hp = 50;
         bossinfo.atk = 30;
+        bossinfo.curHp = 0;
+        UpdateBossHP((float)bossinfo.curHp / bossinfo.maxhp);
     }
 
     // Update is called once per frame
@@ -67,7 +72,40 @@ public class BossController : MonoBehaviour
     public void Attack(bool bAttack)
     {
         //update boss ui
-        
+        if(state == BossState.Plus)
+        {
+            if (!bAttack)
+            {
+                bossinfo.curHp += bossinfo.hp;
+            }
+            else
+            {
+                bossinfo.curHp += (int)((float)bossinfo.hp * 0.8f);
+            }
+            if (bossinfo.curHp >= bossinfo.maxhp)
+            {
+                bossinfo.curHp = bossinfo.maxhp;
+                state = BossState.Minus;
+            }
+        }else
+        {
+            if (!bAttack)
+            {
+                bossinfo.curHp -= bossinfo.hp;
+            }
+            else
+            {
+                bossinfo.curHp -= (int)((float)bossinfo.hp * 0.8f);
+            }
+            if (bossinfo.curHp <= 0)
+            {
+                bossinfo.curHp = 0;
+                
+            }
+        }
+
+
+        UpdateBossHP((float)bossinfo.curHp / bossinfo.maxhp);
         if(bAttack)
         {
             iTween.MoveTo(gameObject, iTween.Hash("x", 0.65f, "z", -9f, "time", 1f));
@@ -88,6 +126,9 @@ public class BossController : MonoBehaviour
     {
         if (bossattackend != null)
             bossattackend();
+        if (state == BossState.Minus && bossinfo.curHp == 0)
+            BossDead();
+       
     }
 
     void SayEnd()
@@ -102,10 +143,10 @@ public class BossController : MonoBehaviour
         bIsSay = true;
     }
 
-    void AttackEvent(bool skill)
+    void AttackEvent()
     {
         if (bossattackevent != null)
-            bossattackevent(skill?bossinfo.atk:bossinfo.hp, skill);
+            bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.hp, bIsSkill);
     }
 
 
