@@ -125,7 +125,7 @@ public class BossController : MonoBehaviour
     void AttackEnd()
     {
         if (state == BossState.Minus && bossinfo.curHp == 0)
-            BossDead();
+            bIsDead = true;
         if (bossattackend != null)
             bossattackend();  
     }
