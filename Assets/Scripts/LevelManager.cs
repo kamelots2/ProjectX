@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
 
     public void BossAttackEnd()
     {
-        if (Boss.GetComponent<BossController>().IsDead())
+        if (!Boss.GetComponent<BossController>().IsDead())
             Boss.GetComponent<BossController>().Say();
     }
 
