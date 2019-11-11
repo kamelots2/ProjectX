@@ -149,11 +149,6 @@ public class BossController : MonoBehaviour
     }
 
 
-    void BossDead()
-    {
-        if (bossdead != null)
-            bossdead();
-    }
 
     void UpdateBossHP(float value)
     {
