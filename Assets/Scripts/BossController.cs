@@ -8,8 +8,8 @@ public class BossController : MonoBehaviour
     public delegate void BossAttackEvent_DG(int atk, bool bSkill);
     public delegate void BossAttackEnd_DG();
     public delegate void BossDead_DG();
-    public delegate void UpdateBossHP_DG(float value);
-    public UpdateBossHP_DG updatebosshp;
+    public delegate void UpdateBossiAV_DG(float value);
+    public UpdateBossiAV_DG updatebossiAV;
     public BossSayEnd_DG bosssayend;
     public BossAttackEvent_DG bossattackevent;
     public BossAttackEnd_DG bossattackend;
@@ -20,9 +20,9 @@ public class BossController : MonoBehaviour
         Minus,
     }
     struct BossInfo{
-        public int curHp;
-        public int hp;
-        public int maxhp;
+        public int iCurrentAV;
+        public int iAV;
+        public int iMaxAV;
         public int atk;
     };
     //private BossState state = BossState.Plus;
@@ -35,24 +35,30 @@ public class BossController : MonoBehaviour
     private bool bIsSay = false;
     private bool bIsSkill = false;
     private bool bIsDead = false;
+    Animator anim;
     BossState state = BossState.Plus;
+    List<List<string>> lBossText1 = new List<List<string>>();
+    List<List<string>> lBossText2 = new List<List<string>>();
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         Init();
-      
     }
 
     private void Init()
     {
         //init boss state
-        List<List<int>> lBossData = new List<List<int>>();
-        //LoadDataManager.XLSX("PlayerData.xlsx", lBossData);
-        bossinfo.maxhp = 100;
-        bossinfo.hp = 50;
-        bossinfo.atk = 30;
-        bossinfo.curHp = 0;
-        UpdateBossHP((float)bossinfo.curHp / bossinfo.maxhp);
+        List<List<string>> lBossData = new List<List<string>>();
+        LoadDataManager.XLSX("Boss1Data.xlsx", lBossData);
+        bossinfo.iMaxAV = int.Parse(lBossData[0][1]);
+        bossinfo.iAV = int.Parse(lBossData[1][1]);
+        bossinfo.atk = int.Parse(lBossData[2][1]);
+        bossinfo.iCurrentAV = 0;
+        //UpdateBossiAV((float)bossinfo.iCurrentAV / bossinfo.iMaxAV);
+
+        LoadDataManager.XLSX(lBossData[3][1], lBossText1);
+        LoadDataManager.XLSX(lBossData[4][1], lBossText2);
     }
 
     // Update is called once per frame
@@ -76,55 +82,63 @@ public class BossController : MonoBehaviour
         {
             if (!bAttack)
             {
-                bossinfo.curHp += bossinfo.hp;
+                bossinfo.iCurrentAV += bossinfo.iAV;
             }
             else
             {
-                bossinfo.curHp += (int)((float)bossinfo.hp * 0.8f);
+                bossinfo.iCurrentAV += (int)((float)bossinfo.iAV * 0.8f);
             }
-            if (bossinfo.curHp >= bossinfo.maxhp)
+            if (bossinfo.iCurrentAV >= bossinfo.iMaxAV)
             {
-                bossinfo.curHp = bossinfo.maxhp;
+                bossinfo.iCurrentAV = bossinfo.iMaxAV;
                 state = BossState.Minus;
             }
         }else
         {
             if (!bAttack)
             {
-                bossinfo.curHp -= bossinfo.hp;
+                bossinfo.iCurrentAV -= bossinfo.iAV;
             }
             else
             {
-                bossinfo.curHp -= (int)((float)bossinfo.hp * 0.8f);
+                bossinfo.iCurrentAV -= (int)((float)bossinfo.iAV * 0.8f);
             }
-            if (bossinfo.curHp <= 0)
+            if (bossinfo.iCurrentAV <= 0)
             {
-                bossinfo.curHp = 0;
+                bossinfo.iCurrentAV = 0;
                 
             }
         }
 
 
-        UpdateBossHP((float)bossinfo.curHp / bossinfo.maxhp);
+        UpdateBossiAV((float)bossinfo.iCurrentAV / bossinfo.iMaxAV);
         if(bAttack)
         {
-            iTween.MoveTo(gameObject, iTween.Hash("x", 0.65f, "z", -9f, "time", 1f));
-            //
-            iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 1f, "oncomplete", "AttackEnd",
+            iTween.MoveTo(gameObject, iTween.Hash("x", 0.65f, "z", -9f, "time", 1f, "oncomplete", "MoveEnd",
             "oncompletetarget", gameObject));
         }
         else
         {
-            iTween.MoveTo(gameObject, iTween.Hash("x", 0.25f, "z", -9f, "time", 1f));
-            //
-            iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 1f, "oncomplete", "AttackEnd",
+            iTween.MoveTo(gameObject, iTween.Hash("x", 0.25f, "z", -9f, "time", 1f, "oncomplete", "MoveEnd",
             "oncompletetarget", gameObject));
         }
     }
 
+    void MoveEnd()
+    {
+        anim.SetBool("Attack", true);
+    }
+
+    void AttackAnimEnd()
+    {
+        anim.SetBool("Attack", false);
+        iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 1f, "oncomplete", "AttackEnd",
+            "oncompletetarget", gameObject));
+    }
+
     void AttackEnd()
     {
-        if (state == BossState.Minus && bossinfo.curHp == 0)
+        if (state == BossState.Minus && bossinfo.iCurrentAV == 0)
             bIsDead = true;
         if (bossattackend != null)
             bossattackend();  
@@ -138,22 +152,22 @@ public class BossController : MonoBehaviour
 
     public void Say()
     {
-        sayTime = 2;
+        sayTime = 3;
         bIsSay = true;
     }
 
     void AttackEvent()
     {
         if (bossattackevent != null)
-            bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.hp, bIsSkill);
+            bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.iAV, bIsSkill);
     }
 
 
 
-    void UpdateBossHP(float value)
+    void UpdateBossiAV(float value)
     {
-        if (updatebosshp != null)
-            updatebosshp(value);
+        if (updatebossiAV != null)
+            updatebossiAV(value);
     }
 
     public bool IsDead()

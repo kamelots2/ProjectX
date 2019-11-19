@@ -13,9 +13,10 @@ public class LevelManager : MonoBehaviour
     GameObject PlayerFM = null;
     [SerializeField]
     GameObject uiManager=null;
-    private int PlayerHp;
+    int PlayerHp;
     float time;
     bool bIsAttack = false;
+    List<List<string>> lStrData = new List<List<string>>();
 
     void Start()
     {
@@ -38,8 +39,6 @@ public class LevelManager : MonoBehaviour
                 bIsAttack = false;
             }
         }
-
-
     }
 
     public void SayEnd()
@@ -68,16 +67,19 @@ public class LevelManager : MonoBehaviour
     {
         if (!Boss.GetComponent<BossController>().IsDead())
             Boss.GetComponent<BossController>().Say();
+        else
+        {
+            //ReadData("");
+            //init button
+
+            //show button
+            GameObject.Find("ButtonGroup").GetComponent<ButtonManager>().ShowButton();
+        }
     }
 
-
-
-    private void OnDestroy()
+    void ReadData(string filename)
     {
-        //Boss.GetComponent<BossController>().bossattackevent -= BossAttackEvent;
-        //Boss.GetComponent<BossController>().bossattackend -= BossAttackEnd;
-        //Boss.GetComponent<BossController>().bossdead -= BossDeath;
-        //Boss.GetComponent<BossController>().bosssayend -= SayEnd;
+        LoadDataManager.XLSX(filename, lStrData);
     }
 
 

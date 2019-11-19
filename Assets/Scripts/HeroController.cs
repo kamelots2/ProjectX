@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeroController : MonoBehaviour
 {
+    bool bIsDef;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,20 +19,25 @@ public class HeroController : MonoBehaviour
 
     public void Defense(bool b)
     {
-        iTween.MoveTo(gameObject, iTween.Hash("x", 0.55f, "z", -8.99f, "time", 1f));
-        //SetDefense(b);
-        iTween.MoveTo(gameObject, iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 1f));
+        bIsDef = b;
+        iTween.MoveTo(gameObject, iTween.Hash("x", 0.55f, "z", -8.99f, "time", 1f, "oncomplete", "MoveEnd",
+            "oncompletetarget", gameObject));
+
+    }
+
+    void MoveEnd()
+    {
+        SetDefense(bIsDef);
     }
 
     void DefEnd()
     {
-        //Debug.Log("Hello, world!");
+        iTween.MoveTo(gameObject, iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 3f));
         SetDefense(false);
     }
 
     void SetDefense(bool bIsDefense)
     {
-        GetComponent<Animator>().SetBool("Idle",!bIsDefense);
         GetComponent<Animator>().SetBool("Def", bIsDefense);
     }
 }

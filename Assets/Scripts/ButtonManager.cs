@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
+    Animator anim;
     public enum ButtonType
     {
         Btn1,
@@ -14,7 +15,7 @@ public class ButtonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,5 +27,11 @@ public class ButtonManager : MonoBehaviour
     public void Press(int type)
     {
         //gameObject.p
+        anim.Play("HideButton");
+    }
+
+    public void ShowButton()
+    {
+        anim.Play("ShowButton");
     }
 }

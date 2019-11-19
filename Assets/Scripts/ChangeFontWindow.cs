@@ -36,7 +36,6 @@ public class FontReplacer : EditorWindow
             {
                 component.font = sp.objectReferenceValue as Font;
             }
-            // ※追記 : シーンに変更があることをUnity側に通知しないと、シーンを切り替えたときに変更が破棄されてしまうので、↓が必要
             EditorSceneManager.MarkAllScenesDirty();
         }
     }

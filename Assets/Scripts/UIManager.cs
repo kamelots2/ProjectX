@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
         PlayerDataManager.Instance.updatestate += UpdateUIForPlayer;
         UpdateUIForPlayer(PlayerDataManager.Instance.GetPlayerData());
         sbosshp.value = 0;
-        GameObject.Find("Boss").GetComponent<BossController>().updatebosshp += UpdateUIForBoss;
+        GameObject.Find("Boss").GetComponent<BossController>().updatebossiAV += UpdateUIForBoss;
 
     }
 
