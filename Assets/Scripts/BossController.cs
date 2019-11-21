@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void BossSayEnd_DG();
+public delegate void BossAttackEvent_DG(int atk, bool bSkill);
+public delegate void BossAttackEnd_DG();
+public delegate void BossDead_DG();
+public delegate void UpdateBossiAV_DG(float value);
+
 public class BossController : MonoBehaviour
 {
-    public delegate void BossSayEnd_DG();
-    public delegate void BossAttackEvent_DG(int atk, bool bSkill);
-    public delegate void BossAttackEnd_DG();
-    public delegate void BossDead_DG();
-    public delegate void UpdateBossiAV_DG(float value);
     public UpdateBossiAV_DG updatebossiAV;
     public BossSayEnd_DG bosssayend;
     public BossAttackEvent_DG bossattackevent;
     public BossAttackEnd_DG bossattackend;
+    [SerializeField]
+    Canvas can = null;
 
     enum BossState
     {
@@ -34,11 +37,12 @@ public class BossController : MonoBehaviour
     private float sayTime = -1;
     private bool bIsSay = false;
     private bool bIsSkill = false;
-    private bool bIsDead = false;
+    private bool bIsAttackEnd = false;
     Animator anim;
     BossState state = BossState.Plus;
     List<List<string>> lBossText1 = new List<List<string>>();
     List<List<string>> lBossText2 = new List<List<string>>();
+    int iTextIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +60,7 @@ public class BossController : MonoBehaviour
         bossinfo.atk = int.Parse(lBossData[2][1]);
         bossinfo.iCurrentAV = 0;
         //UpdateBossiAV((float)bossinfo.iCurrentAV / bossinfo.iMaxAV);
-
+        iTextIndex = 0;
         LoadDataManager.XLSX(lBossData[3][1], lBossText1);
         LoadDataManager.XLSX(lBossData[4][1], lBossText2);
     }
@@ -69,15 +73,23 @@ public class BossController : MonoBehaviour
             sayTime -= Time.deltaTime;
             if (sayTime < 0)
             {
-                bIsSay = false;
-                SayEnd();
+                if(CheckSay())
+                {
+                    SayEnd();
+                    bIsSay = false;
+                    
+                }else
+                {
+                    Say();
+                }
+                
             }
         }
     }
 
     public void Attack(bool bAttack)
     {
-        //update boss ui
+        //update boss ui and animation
         if(state == BossState.Plus)
         {
             if (!bAttack)
@@ -98,8 +110,7 @@ public class BossController : MonoBehaviour
             if (!bAttack)
             {
                 bossinfo.iCurrentAV -= bossinfo.iAV;
-            }
-            else
+            }else
             {
                 bossinfo.iCurrentAV -= (int)((float)bossinfo.iAV * 0.8f);
             }
@@ -132,16 +143,22 @@ public class BossController : MonoBehaviour
     void AttackAnimEnd()
     {
         anim.SetBool("Attack", false);
-        iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 1f, "oncomplete", "AttackEnd",
+        iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 0.3f, "oncomplete", "AttackEnd",
             "oncompletetarget", gameObject));
     }
 
     void AttackEnd()
     {
         if (state == BossState.Minus && bossinfo.iCurrentAV == 0)
-            bIsDead = true;
-        if (bossattackend != null)
-            bossattackend();  
+        {
+            bIsAttackEnd = true;
+            Say();
+        }
+        if(!bIsAttackEnd)
+        {
+            if (bossattackend != null)
+                bossattackend();
+        }     
     }
 
     void SayEnd()
@@ -152,8 +169,11 @@ public class BossController : MonoBehaviour
 
     public void Say()
     {
-        sayTime = 3;
-        bIsSay = true;
+        if (iTextIndex < lBossText1.Count)
+        {
+            sayTime = can.GetComponent<BossMessageController>().ShowText(lBossText1[iTextIndex++][0]);
+            bIsSay = true;
+        }
     }
 
     void AttackEvent()
@@ -172,6 +192,51 @@ public class BossController : MonoBehaviour
 
     public bool IsDead()
     {
-        return bIsDead;
+        return bIsAttackEnd;
+    }
+
+    public List<string> GetButtonInfo()
+    {
+        return lBossText2[iTextIndex];
+    }
+
+    
+    bool CheckSay() //sayend : true
+    {
+        if (!bIsAttackEnd)
+        {
+            if (state == BossState.Plus)
+            {
+                return true;
+            }
+            else
+            {
+                if(int.Parse(lBossText1[iTextIndex][1]) < 0)
+                {
+                    return true;
+                }else
+                {
+                    return false;
+                }
+            }
+        }
+        else
+        {
+            if (iTextIndex >= lBossText1.Count)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void  ChangeState()
+    {
+        iTextIndex = 0;
+    }
+
+    public void ShowQuastion()
+    {
+       can.GetComponent<BossMessageController>().ShowText(lBossText2[iTextIndex][0]);
     }
 }

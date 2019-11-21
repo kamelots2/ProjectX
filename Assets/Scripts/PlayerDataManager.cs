@@ -38,6 +38,12 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         UpdateUI();
     }
 
+    public void ResetHP(int hp)
+    {
+        playerdata.hp = hp;
+        UpdateUI();
+    }
+
     public void Init()
     {
         playerdata = new PlayerData();

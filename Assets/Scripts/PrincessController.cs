@@ -16,18 +16,25 @@ public class PrincessController : MonoBehaviour
         
     }
 
-   public  void ChangeState()
-    {
+   public  void ChangeState(bool b)
+   {
+        if(b)
+        {
+            SayInfo();
+        }else
+        {
 
-    }
+        }
+   }
 
-    void SayInfo()
-    {
+   void SayInfo()
+   {
 
-    }
+   }
 
-    void AnimEndEvent()
-    {
+   void AnimEndEvent()
+   {
         //GetComponent<Animator>().SetBool("Idle", true);
-    }
+
+   }
 }

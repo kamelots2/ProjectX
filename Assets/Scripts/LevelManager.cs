@@ -24,6 +24,8 @@ public class LevelManager : MonoBehaviour
         Boss.GetComponent<BossController>().bossattackend += BossAttackEnd;
         Boss.GetComponent<BossController>().bosssayend += SayEnd;
         Boss.GetComponent<BossController>().Say();
+
+        PlayerHp = PlayerDataManager.Instance.GetPlayerData().hp;
     }
 
     // Update is called once per frame
@@ -43,38 +45,42 @@ public class LevelManager : MonoBehaviour
 
     public void SayEnd()
     {
-        uiManager.GetComponent<UIManager>().SetButton(5);
-        time = 5;
-        bIsAttack = true;
-    }
-
-    private void BossAttackEvent(int atk,bool isSkill)
-    {
-        if (uiManager.GetComponent<UIManager>().IsPerfect() == false)
-        {
-            PlayerFM.GetComponent<PrincessController>().ChangeState();
-            PlayerHp= PlayerDataManager.Instance.GetPlayerData().hp-atk;
-        }
-        else
-        {
-            PlayerHp = PlayerDataManager.Instance.GetPlayerData().hp - atk+PlayerDataManager.Instance.GetPlayerData().def;
-        }
-        PlayerDataManager.Instance.SetHP(PlayerHp);
-
-    }
-
-    public void BossAttackEnd()
-    {
         if (!Boss.GetComponent<BossController>().IsDead())
-            Boss.GetComponent<BossController>().Say();
+        {   
+            uiManager.GetComponent<UIManager>().SetButton(5);
+            time = 4;
+            bIsAttack = true;
+        }
         else
         {
             //ReadData("");
             //init button
-
+            Boss.GetComponent<BossController>().ChangeState();
+            Boss.GetComponent<BossController>().ShowQuastion();
+            GameObject.Find("ButtonGroup").GetComponent<ButtonManager>().SetButtonInfo(Boss.GetComponent<BossController>().GetButtonInfo());
             //show button
             GameObject.Find("ButtonGroup").GetComponent<ButtonManager>().ShowButton();
         }
+    }
+
+    private void BossAttackEvent(int atk,bool isSkill)
+    {
+        //if (uiManager.GetComponent<UIManager>().IsPerfect() == false)
+        //{
+        //    PlayerFM.GetComponent<PrincessController>().ChangeState(uiManager.GetComponent<UIManager>().IsPerfect());
+        //}
+        //else
+        //{
+        //    PlayerHp = PlayerDataManager.Instance.GetPlayerData().hp - atk + PlayerDataManager.Instance.GetPlayerData().def;
+        //}
+        PlayerFM.GetComponent<PrincessController>().ChangeState(uiManager.GetComponent<UIManager>().IsPerfect());
+        PlayerDataManager.Instance.SetHP(!uiManager.GetComponent<UIManager>().IsPerfect()?atk:(int)(atk*0.8f));
+
+    }
+
+    public void BossAttackEnd()
+    { 
+        Boss.GetComponent<BossController>().Say();
     }
 
     void ReadData(string filename)
@@ -82,5 +88,19 @@ public class LevelManager : MonoBehaviour
         LoadDataManager.XLSX(filename, lStrData);
     }
 
+    private void OnDestroy()
+    {
+        
+    }
 
+    void GameOver()
+    {
+        //win
+
+
+        //failed
+        PlayerDataManager.Instance.ResetHP(PlayerHp);
+
+        //loadMap
+    }
 }

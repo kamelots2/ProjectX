@@ -32,7 +32,7 @@ public class HeroController : MonoBehaviour
 
     void DefEnd()
     {
-        iTween.MoveTo(gameObject, iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 3f));
+        iTween.MoveTo(gameObject, iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 1f));
         SetDefense(false);
     }
 
