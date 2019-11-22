@@ -20,7 +20,7 @@ public class BossMessageController : MonoBehaviour
 
     public float ShowText(string str)
     {
-        textmesh.SetText(str);
+        textmesh.SetText(LanguageManager.Instance.GetString(str));
         return 2.0f;
     }
 }

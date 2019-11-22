@@ -11,11 +11,6 @@ using System.Collections.Generic;
 
 public class LoadDataManager
 {
-    void Start()
-    {
-        
-    }
-
     public static void XLSX(string filename, List<List<int> > dataList)
     {
         FileStream stream = File.Open(Application.dataPath+ "/Resources/" + filename, FileMode.Open, FileAccess.Read);
@@ -84,6 +79,30 @@ public class LoadDataManager
                 data.Add(nvalue);
             }
             dataList.Add(data);
+        }
+    }
+
+
+    public static void XLSX(string filename, Dictionary<string, string> dString)
+    {
+        FileStream stream = File.Open(Application.dataPath + "/Resources/" + filename, FileMode.Open, FileAccess.Read);
+        IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+
+        DataSet result = excelReader.AsDataSet();
+
+        int columns = result.Tables[0].Columns.Count;
+        int rows = result.Tables[0].Rows.Count;
+
+        for (int i = 1; i < rows; i++)
+        {
+            List<string> lString = new List<string>();
+            for (int j = 0; j < columns; j++)
+            {
+                string nvalue = result.Tables[0].Rows[i][j].ToString();
+                lString.Add(nvalue);
+            }
+
+            dString.Add(lString[0], lString[1]);
         }
     }
 }

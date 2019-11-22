@@ -12,7 +12,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     GameObject PlayerFM = null;
     [SerializeField]
-    GameObject uiManager=null;
+    GameObject UIManager=null;
+    [SerializeField]
+    GameObject ButtonGroup = null;
+    [SerializeField]
+    GameObject GameOverWindow = null;
     int PlayerHp;
     float time;
     bool bIsAttack = false;
@@ -20,12 +24,17 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
+        LanguageManager.Instance.InitLanguage();
+       
         Boss.GetComponent<BossController>().bossattackevent += BossAttackEvent;
         Boss.GetComponent<BossController>().bossattackend += BossAttackEnd;
         Boss.GetComponent<BossController>().bosssayend += SayEnd;
+        Boss.GetComponent<BossController>().questionend += ShowButton;
         Boss.GetComponent<BossController>().Say();
 
         PlayerHp = PlayerDataManager.Instance.GetPlayerData().hp;
+
+        ButtonGroup.GetComponent<ButtonManager>().OnButtonClick += OnButtonClick;
     }
 
     // Update is called once per frame
@@ -46,36 +55,21 @@ public class LevelManager : MonoBehaviour
     public void SayEnd()
     {
         if (!Boss.GetComponent<BossController>().IsDead())
-        {   
-            uiManager.GetComponent<UIManager>().SetButton(5);
+        {
+            UIManager.GetComponent<UIManager>().SetButton(5);
             time = 4;
             bIsAttack = true;
         }
         else
-        {
-            //ReadData("");
-            //init button
+        {      
             Boss.GetComponent<BossController>().ChangeState();
-            Boss.GetComponent<BossController>().ShowQuastion();
-            GameObject.Find("ButtonGroup").GetComponent<ButtonManager>().SetButtonInfo(Boss.GetComponent<BossController>().GetButtonInfo());
-            //show button
-            GameObject.Find("ButtonGroup").GetComponent<ButtonManager>().ShowButton();
         }
     }
 
     private void BossAttackEvent(int atk,bool isSkill)
     {
-        //if (uiManager.GetComponent<UIManager>().IsPerfect() == false)
-        //{
-        //    PlayerFM.GetComponent<PrincessController>().ChangeState(uiManager.GetComponent<UIManager>().IsPerfect());
-        //}
-        //else
-        //{
-        //    PlayerHp = PlayerDataManager.Instance.GetPlayerData().hp - atk + PlayerDataManager.Instance.GetPlayerData().def;
-        //}
-        PlayerFM.GetComponent<PrincessController>().ChangeState(uiManager.GetComponent<UIManager>().IsPerfect());
-        PlayerDataManager.Instance.SetHP(!uiManager.GetComponent<UIManager>().IsPerfect()?atk:(int)(atk*0.8f));
-
+        PlayerFM.GetComponent<PrincessController>().ChangeState(UIManager.GetComponent<UIManager>().IsPerfect());
+        PlayerDataManager.Instance.SetHP(!UIManager.GetComponent<UIManager>().IsPerfect()?atk:(int)(atk*0.8f));
     }
 
     public void BossAttackEnd()
@@ -93,14 +87,36 @@ public class LevelManager : MonoBehaviour
         
     }
 
-    void GameOver()
+    void CheckGameOver(int result)
     {
-        //win
+        if (result <= 0)
+        {
+            //game over
+            GameOverWindow.GetComponent<GameOver>().ShowWindow(result);
 
+            //win
+            if (result == 0)
+            {
 
-        //failed
-        PlayerDataManager.Instance.ResetHP(PlayerHp);
+            }
+            else
+            {
+                //failed
+                PlayerDataManager.Instance.ResetHP(PlayerHp);
+            }
+        }
+    }
 
-        //loadMap
+    void OnButtonClick(int type)
+    {
+        CheckGameOver(Boss.GetComponent<BossController>().LoadQuestion(type));
+    }
+
+    void ShowButton()
+    {
+        //init button text
+        ButtonGroup.GetComponent<ButtonManager>().SetButtonInfo(Boss.GetComponent<BossController>().GetButtonInfo());
+        //show button
+        ButtonGroup.GetComponent<ButtonManager>().ShowButton();
     }
 }

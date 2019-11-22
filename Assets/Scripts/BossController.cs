@@ -7,6 +7,7 @@ public delegate void BossAttackEvent_DG(int atk, bool bSkill);
 public delegate void BossAttackEnd_DG();
 public delegate void BossDead_DG();
 public delegate void UpdateBossiAV_DG(float value);
+public delegate void QuestionEnd_DG();
 
 public class BossController : MonoBehaviour
 {
@@ -14,34 +15,40 @@ public class BossController : MonoBehaviour
     public BossSayEnd_DG bosssayend;
     public BossAttackEvent_DG bossattackevent;
     public BossAttackEnd_DG bossattackend;
+    public QuestionEnd_DG questionend;
     [SerializeField]
-    Canvas can = null;
+    Canvas cBossMessage= null;
 
     enum BossState
     {
         Plus,
         Minus,
     }
+
+    //enum BossSection
+    //{
+    //    First,
+    //    Second,
+    //}
+
     struct BossInfo{
+        //angry value
         public int iCurrentAV;
         public int iAV;
         public int iMaxAV;
         public int atk;
     };
-    //private BossState state = BossState.Plus;
+
     private BossInfo bossinfo = new BossInfo();
-    //[SerializeField]
-    //GameObject gMoveToPosT = null;
-    //[SerializeField]
-    //GameObject gMoveToPosF = null;
     private float sayTime = -1;
-    private bool bIsSay = false;
     private bool bIsSkill = false;
     private bool bIsAttackEnd = false;
     Animator anim;
     BossState state = BossState.Plus;
+    //BossSection section = BossSection.First;
     List<List<string>> lBossText1 = new List<List<string>>();
     List<List<string>> lBossText2 = new List<List<string>>();
+    List<string> lQuestionText = new List<string>();
     int iTextIndex;
     // Start is called before the first frame update
     void Start()
@@ -68,23 +75,7 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(bIsSay)
-        {
-            sayTime -= Time.deltaTime;
-            if (sayTime < 0)
-            {
-                if(CheckSay())
-                {
-                    SayEnd();
-                    bIsSay = false;
-                    
-                }else
-                {
-                    Say();
-                }
-                
-            }
-        }
+
     }
 
     public void Attack(bool bAttack)
@@ -117,7 +108,6 @@ public class BossController : MonoBehaviour
             if (bossinfo.iCurrentAV <= 0)
             {
                 bossinfo.iCurrentAV = 0;
-                
             }
         }
 
@@ -171,8 +161,8 @@ public class BossController : MonoBehaviour
     {
         if (iTextIndex < lBossText1.Count)
         {
-            sayTime = can.GetComponent<BossMessageController>().ShowText(lBossText1[iTextIndex++][0]);
-            bIsSay = true;
+            sayTime = cBossMessage.GetComponent<BossMessageController>().ShowText(lBossText1[iTextIndex++][0]);
+            StartCoroutine("SayOK"); 
         }
     }
 
@@ -200,7 +190,20 @@ public class BossController : MonoBehaviour
         return lBossText2[iTextIndex];
     }
 
-    
+    IEnumerator SayOK()
+    {
+        yield return new WaitForSeconds(sayTime);
+
+        if (CheckSay())
+        {
+            SayEnd();
+        }
+        else
+        {
+            Say();
+        }
+    }
+
     bool CheckSay() //sayend : true
     {
         if (!bIsAttackEnd)
@@ -233,10 +236,60 @@ public class BossController : MonoBehaviour
     public void  ChangeState()
     {
         iTextIndex = 0;
+        //section = BossSection.Second;
+        LoadQuestion(-1);
     }
 
-    public void ShowQuastion()
+    public int LoadQuestion(int type)
     {
-       can.GetComponent<BossMessageController>().ShowText(lBossText2[iTextIndex][0]);
+        lQuestionText.Clear();
+        int result = 1;
+        if (type == -1)
+        {
+            lQuestionText.Add(lBossText2[iTextIndex][0]);
+        }else
+        {
+            iTextIndex = int.Parse(lBossText2[iTextIndex][type+2]);
+            result = int.Parse(lBossText2[iTextIndex][1]);
+            lQuestionText.Add(lBossText2[iTextIndex][0]);
+        }
+
+        ShowQuestion();
+        return result;
+    }
+
+    public void ShowQuestion()
+    {
+        sayTime = cBossMessage.GetComponent<BossMessageController>().ShowText(lBossText2[iTextIndex][0]);
+        lQuestionText.RemoveAt(0);
+        if (iTextIndex < lBossText2.Count)
+        {
+            StartCoroutine("ShowQuestionOK");
+        } 
+    }
+
+    IEnumerator ShowQuestionOK()
+    {
+        yield return new WaitForSeconds(sayTime);
+
+        if (CheckQuestion())
+        {
+            ShowQuestionEnd();
+        }
+        else
+        {
+            ShowQuestion();
+        }
+    }
+
+    bool CheckQuestion()
+    {
+        return lQuestionText.Count > 0 ? false : true;
+    }
+
+    public void ShowQuestionEnd()
+    {
+        if (questionend != null)
+            questionend();
     }
 }

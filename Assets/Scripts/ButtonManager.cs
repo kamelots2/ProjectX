@@ -53,7 +53,7 @@ public class ButtonManager : MonoBehaviour
         }
         for(int i=0;i<iButtonNum;i++)
         {
-            lButton[i].GetComponentInChildren<Text>().text = lString[2 + i];
+            lButton[i].GetComponentInChildren<Text>().text =  LanguageManager.Instance.GetString(lString[2 +iButtonNum+ i]);
             lButton[i].SetActive(true);
         }
     }
