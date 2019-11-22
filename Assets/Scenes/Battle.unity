@@ -2575,6 +2575,7 @@ MonoBehaviour:
   PlayerFM: {fileID: 907275344}
   UIManager: {fileID: 1272737388}
   ButtonGroup: {fileID: 148299276}
+  GameOverWindow: {fileID: 1300618204}
 --- !u!4 &1683169654
 Transform:
   m_ObjectHideFlags: 0

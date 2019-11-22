@@ -9,8 +9,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject clickbtn = null;
     [SerializeField]
-    GameObject choosebtn = null;
-    [SerializeField]
     Slider  splayerhp = null;
     [SerializeField]
     Slider  sbosshp = null;
@@ -94,12 +92,6 @@ public class UIManager : MonoBehaviour
             }
         }
         return true;
-    }
-
-    void ShowChooseButton()
-    {
-        //choosebtn.SetActive(true);
-        ((Animator)choosebtn.GetComponent<Animator>()).Play("New State");
     }
 
     void UpdateUIForPlayer(PlayerData data)
