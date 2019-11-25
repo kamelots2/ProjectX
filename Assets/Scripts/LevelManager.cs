@@ -74,8 +74,12 @@ public class LevelManager : MonoBehaviour
     }
 
     public void BossAttackEnd()
-    { 
-        Boss.GetComponent<BossController>().Say();
+    {
+        if (PlayerHp>0)
+        {
+            Boss.GetComponent<BossController>().Say();
+        }
+      
     }
 
     void ReadData(string filename)
@@ -103,6 +107,7 @@ public class LevelManager : MonoBehaviour
             else
             {
                 //failed
+
                 PlayerDataManager.Instance.ResetHP(PlayerHp);
             }
         }
