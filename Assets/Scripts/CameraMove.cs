@@ -39,15 +39,15 @@ using UnityEngine;
         if (Input.GetMouseButton(1))
         {
             this.eulerAngles_x += (Input.mousePosition.x - XX) * Time.deltaTime * this.xSpeed;
-            if(this.eulerAngles_x > 30)
-            {
-                this.eulerAngles_x = 30;
-            }
-            else if(this.eulerAngles_x < -30)
-            {
-                this.eulerAngles_x = -30;
-            }
-                XX = Input.mousePosition.x;
+            //if(this.eulerAngles_x > 30)
+            //{
+            //    this.eulerAngles_x = 30;
+            //}
+            //else if(this.eulerAngles_x < -30)
+            //{
+            //    this.eulerAngles_x = -30;
+            //}
+            XX = Input.mousePosition.x;
         }
 
         this.distance = Mathf.Clamp(this.distance - (Input.GetAxis("Mouse ScrollWheel") * MouseScrollWheelSensitivity), (float)this.distanceMin, (float)this.distanceMax);

@@ -42,9 +42,10 @@ public class PlayerController : MonoBehaviour
             bRIght = false;
             rRotation = Quaternion.Euler(new Vector3(0, 180, 0));
         }
-        transform.rotation = rRotation * Quaternion.Euler(new Vector3(0, cameraObj.GetComponent<CameraMove>().eulerAngles_x, 0));
-        Vector3 translation = new Vector3(hMove, 1, vMove) * Time.deltaTime;
-        rgd.velocity = translation;
-        
+        Quaternion q = Quaternion.Euler(new Vector3(0, cameraObj.GetComponent<CameraMove>().eulerAngles_x, 0));
+        transform.rotation = rRotation * q;
+        Vector3 mov = new Vector3(hMove, 1, vMove) * Time.deltaTime;
+        rgd.velocity = q * mov;
+   
     }
 }
