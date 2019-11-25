@@ -7,11 +7,13 @@ public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    GameObject clickbtn = null;
+    GameObject gClickbtn = null;
     [SerializeField]
-    Slider  splayerhp = null;
+    Slider  sPlayerHP = null;
     [SerializeField]
-    Slider  sbosshp = null;
+    Slider  sBossHp = null;
+    [SerializeField]
+    GameObject gResult = null;
     private List<GameObject> lButton = new List<GameObject>();
     private List<GameObject> lButtonPool = new List<GameObject>();
     private int BtnNum = 5;
@@ -20,13 +22,14 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject RightDown = null;
 
-    private void Start()
+    void Start()
     {
         InitUIManager();
         //SetButton(3);
+
         PlayerDataManager.Instance.updatestate += UpdateUIForPlayer;
         UpdateUIForPlayer(PlayerDataManager.Instance.GetPlayerData());
-        sbosshp.value = 0;
+        sBossHp.value = 0;
         GameObject.Find("Boss").GetComponent<BossController>().updatebossiAV += UpdateUIForBoss;
 
     }
@@ -34,10 +37,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown)
-        {
-            //ShowChooseButton();
-        }
+
     }
 
     void InitUIManager()
@@ -47,8 +47,9 @@ public class UIManager : MonoBehaviour
 
         for (int i=0;i< BtnNum; i++)
         {
-            GameObject prefab = (GameObject)Instantiate(clickbtn);
+            GameObject prefab = (GameObject)Instantiate(gClickbtn);
             prefab.transform.SetParent(gameObject.transform, false);
+            prefab.GetComponent<ClickButton>().backButtonResult += ShowResult;
             prefab.SetActive(false);
             lButtonPool.Add(prefab);
         }
@@ -75,9 +76,8 @@ public class UIManager : MonoBehaviour
 
             float x = Random.Range(LeftTop.transform.position.x, RightDown.transform.position.x);
             float y = Random.Range(LeftTop.transform.position.y, RightDown.transform.position.y);
-            
 
-            lButton[i].GetComponent<ClickButton>().Init(0.1f, 0+i*0.5f);
+            lButton[i].GetComponent<ClickButton>().Init(0.15f, 0+i*0.5f);
             lButton[i].transform.position = new Vector3(x, y, 0);
         }
     }
@@ -96,16 +96,30 @@ public class UIManager : MonoBehaviour
 
     void UpdateUIForPlayer(PlayerData data)
     {
-        splayerhp.value = (float)data.hp / (float)data.maxhp;
+        sPlayerHP.value = (float)data.hp / (float)data.maxhp;
     }
 
     void UpdateUIForBoss(float bossValue)
     {
-        sbosshp.value = bossValue;
+        sBossHp.value = bossValue;
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
         PlayerDataManager.Instance.updatestate -= UpdateUIForPlayer;
+    }
+
+    void ShowResult(bool result)
+    {
+        gResult.GetComponentInChildren<Text>().text = result ? "Great" : "Bad";
+        StopCoroutine("HideImg");
+        gResult.SetActive(true);
+        StartCoroutine("HideImg");
+    }
+
+    IEnumerator HideImg()
+    {
+        yield return new WaitForSeconds(0.7f);
+        gResult.SetActive(false);
     }
 }

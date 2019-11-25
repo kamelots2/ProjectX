@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        LanguageManager.Instance.InitLanguage();
+        //LanguageManager.Instance.InitLanguage();
        
         Boss.GetComponent<BossController>().bossattackevent += BossAttackEvent;
         Boss.GetComponent<BossController>().bossattackend += BossAttackEnd;
@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
             time -= Time.deltaTime;
             if(time < 0)
             {
-                Boss.GetComponent<BossController>().Attack(false);
+                Boss.GetComponent<BossController>().Attack(!UIManager.GetComponent<UIManager>().IsPerfect());
                 PlayerM.GetComponent<HeroController>().Defense(true);
                 bIsAttack = false;
             }
@@ -56,8 +56,9 @@ public class LevelManager : MonoBehaviour
     {
         if (!Boss.GetComponent<BossController>().IsDead())
         {
-            UIManager.GetComponent<UIManager>().SetButton(5);
-            time = 4;
+            int num = Random.Range(1, 5);
+            UIManager.GetComponent<UIManager>().SetButton(num);
+            time = 2+(int)((num-1)*0.5f);
             bIsAttack = true;
         }
         else

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void BackClickResult_DG(bool b);
+
 public class ClickButton : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,6 +19,8 @@ public class ClickButton : MonoBehaviour
     private bool bIsPerfect;
     [SerializeField]
     private GameObject root = null;
+
+    public BackClickResult_DG backButtonResult;
 
     public bool IsVisible()
     {
@@ -71,5 +75,8 @@ public class ClickButton : MonoBehaviour
         {
             bIsPerfect = false;
         }
+        Debug.Log(time);
+        if (backButtonResult != null)
+            backButtonResult(bIsPerfect);
     }
 }
