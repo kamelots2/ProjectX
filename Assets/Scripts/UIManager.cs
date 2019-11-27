@@ -94,7 +94,7 @@ public class UIManager : MonoBehaviour
         return true;
     }
 
-    void UpdateUIForPlayer(PlayerData data)
+    void UpdateUIForPlayer(PlayerDataManager.PlayerData data)
     {
         sPlayerHP.value = (float)data.hp / (float)data.maxhp;
     }

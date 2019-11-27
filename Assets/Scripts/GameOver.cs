@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public GameObject winUI;
-    public GameObject lostUI;
+    [SerializeField]
+    GameObject winUI;
+    [SerializeField]
+    GameObject lostUI;
 
 
     public void ShowWindow(int result)
@@ -16,19 +18,18 @@ public class GameOver : MonoBehaviour
 
         if (result == 0)
         {
-            winUI.SetActive(true);
+            //winUI.SetActive(true);
             //win
         }
         else
         {
-            lostUI.SetActive(true);
+            //lostUI.SetActive(true);
             //failed
         }
     }
 
     public void Back()
     {
-
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene("map");
     }
 }

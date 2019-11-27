@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     void Start()
     {
-        //LanguageManager.Instance.InitLanguage();
+        LanguageManager.Instance.InitLanguage();
        
         Boss.GetComponent<BossController>().bossattackevent += BossAttackEvent;
         Boss.GetComponent<BossController>().bossattackend += BossAttackEnd;

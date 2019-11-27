@@ -5,7 +5,7 @@ using UnityEngine;
   class CameraMove : MonoBehaviour
 {
     [SerializeField]
-    Transform target;
+    Transform target = null;
     float distance = 3;
     public float eulerAngles_x;
     float eulerAngles_y = 30;

@@ -1,30 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerData
-{
-   public PlayerData()
-    {
-        hp = 400;
-        maxhp = 500;
-        def = 10;
-        atk = 15;
-    }
-    public int hp;
-    public int def;
-    public int atk;
-    public int maxhp;
-}
+public delegate void UpdateState_DG(PlayerDataManager.PlayerData param);
+public delegate void UpdateSkill_DG(PlayerDataManager.PlayerData param);
+public delegate void UpdateItem_DG(PlayerDataManager.PlayerData param);
 
 public class PlayerDataManager : Singleton<PlayerDataManager>
 {
+    public class PlayerData
+    {
+        public PlayerData()
+        {
+            hp = 400;
+            maxhp = 500;
+            def = 10;
+            atk = 15;
+        }
+        public int hp;
+        public int def;
+        public int atk;
+        public int maxhp;
+    }
+
     PlayerData playerdata = new PlayerData();
-    public delegate void UpdateState_DG(PlayerData param);
-    public delegate void UpdateSkill_DG(PlayerData param);
-    public delegate void UpdateItem_DG(PlayerData param);
+    Vector3 vPlayerPos;
     public UpdateState_DG updatestate;  
     public UpdateSkill_DG updateskill;
     public UpdateItem_DG updateitem;
+
+    public Vector3  postion
+    {
+        set { this.vPlayerPos = value; }
+        get { return this.vPlayerPos; }
+    }
+
     public PlayerData GetPlayerData()
     {
         return playerdata;
@@ -66,6 +75,5 @@ public class PlayerDataManager : Singleton<PlayerDataManager>
         if (updateskill != null)
             updateskill(playerdata);
     }
-
 
 }

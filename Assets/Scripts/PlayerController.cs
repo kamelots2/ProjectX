@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rgd;
     private bool bRIght = true;
     [SerializeField]
-    private GameObject cameraObj;
+    private GameObject cameraObj = null;
     private Quaternion rRotation;
 
     public float fDistance = 5;

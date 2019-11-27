@@ -75,7 +75,6 @@ public class ClickButton : MonoBehaviour
         {
             bIsPerfect = false;
         }
-        Debug.Log(time);
         if (backButtonResult != null)
             backButtonResult(bIsPerfect);
     }
