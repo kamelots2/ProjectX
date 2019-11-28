@@ -67,8 +67,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void BossAttackEvent(int atk,bool isSkill)
+    private void BossAttackEvent(int atk,bool bIsSkill)
     {
+        if(bIsSkill)
+        {
+
+        }
         PlayerFM.GetComponent<PrincessController>().ChangeState(UIManager.GetComponent<UIManager>().IsPerfect());
         PlayerDataManager.Instance.SetHP(!UIManager.GetComponent<UIManager>().IsPerfect()?atk:(int)(atk*0.8f));
     }

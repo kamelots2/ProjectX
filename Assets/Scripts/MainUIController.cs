@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class MainUIController : MonoBehaviour
 {
+    enum WindowTag
+    {
+        StateWindow,
+        ItemWindow,
+        SkillWindow,
+        OptionWindow,
+
+    }
     [SerializeField]
     GameObject gPlayer = null;
     Slider sPlayerHP;
@@ -40,5 +48,11 @@ public class MainUIController : MonoBehaviour
     {
         PlayerDataManager.Instance.postion = gPlayer.transform.position;
         SceneManager.LoadScene("Battle");
+    }
+
+    public void ShowWindow(GameObject obj)
+    {
+        obj.GetComponent<IWindow>().ShowWindow();
+        Time.timeScale = 0;
     }
 }

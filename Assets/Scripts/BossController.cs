@@ -37,12 +37,15 @@ public class BossController : MonoBehaviour
         public int iAV;
         public int iMaxAV;
         public int atk;
+        public int skillAtk;
     };
 
-    private BossInfo bossinfo = new BossInfo();
-    private float sayTime = -1;
-    private bool bIsSkill = false;
-    private bool bIsAttackEnd = false;
+    BossInfo bossinfo = new BossInfo();
+    float sayTime = -1;
+    bool bIsSkill = false;
+    bool bIsAttackEnd = false;
+    int iSkillLv;
+
     Animator anim;
     BossState state = BossState.Plus;
     //BossSection section = BossSection.First;
@@ -65,9 +68,11 @@ public class BossController : MonoBehaviour
         bossinfo.iMaxAV = int.Parse(lBossData[0][1]);
         bossinfo.iAV = int.Parse(lBossData[1][1]);
         bossinfo.atk = int.Parse(lBossData[2][1]);
+        bossinfo.skillAtk = bossinfo.atk * 3;
         bossinfo.iCurrentAV = 0;
         //UpdateBossiAV((float)bossinfo.iCurrentAV / bossinfo.iMaxAV);
         iTextIndex = 0;
+        iSkillLv = 0;
         LoadDataManager.XLSX(lBossData[3][1], lBossText1);
         LoadDataManager.XLSX(lBossData[4][1], lBossText2);
     }
@@ -95,6 +100,7 @@ public class BossController : MonoBehaviour
             {
                 bossinfo.iCurrentAV = bossinfo.iMaxAV;
                 state = BossState.Minus;
+                bIsSkill = true;
             }
         }else
         {
@@ -169,7 +175,9 @@ public class BossController : MonoBehaviour
     void AttackEvent()
     {
         if (bossattackevent != null)
-            bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.iAV, bIsSkill);
+            bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.skillAtk, bIsSkill);
+        if (bIsSkill)
+            bIsSkill = false;
     }
 
 
@@ -219,6 +227,7 @@ public class BossController : MonoBehaviour
                     return true;
                 }else
                 {
+                    iSkillLv++;
                     return false;
                 }
             }
