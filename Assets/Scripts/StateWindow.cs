@@ -39,4 +39,9 @@ public class StateWindow : MonoBehaviour, IWindow
         hpText.text = string.Format("{0}", param.maxhp);
         defText.text = string.Format("{0}", param.def);
     }
+
+    private void OnDestroy()
+    {
+        PlayerDataManager.Instance.updatestate -= UIUpdate;
+    }
 }

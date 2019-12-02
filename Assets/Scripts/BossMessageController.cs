@@ -12,10 +12,15 @@ public class BossMessageController : MonoBehaviour
         textmesh = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
+
+    public Canvas canvas;
+
+
+
     void Update()
+
     {
-        
+        canvas.transform.rotation = Camera.main.transform.rotation;
     }
 
     public float ShowText(string str)
