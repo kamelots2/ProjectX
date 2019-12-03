@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StateWindow : MonoBehaviour, IWindow
+public class StateWindow : BaseWindow
 {
     [SerializeField]
-    Text hpText;
+    Text hpText = null;
     [SerializeField]
-    Text defText;
+    Text defText = null;
     // Start is called before the first frame update
 
     void Start()
@@ -16,22 +16,15 @@ public class StateWindow : MonoBehaviour, IWindow
         PlayerDataManager.Instance.updatestate += UIUpdate;
     }
 
-    public void ShowWindow()
+    public override void ShowWindow()
     {
-        gameObject.SetActive(true);
+        base.ShowWindow();
         UIUpdate(PlayerDataManager.Instance.GetPlayerData());
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void HideWindow()
     {
-
-    }
-
-    public void HideWindow()
-    {
-        gameObject.SetActive(false);
-        Time.timeScale = 1;
+        base.HideWindow();
     }
 
     void UIUpdate(PlayerDataManager.PlayerData param)

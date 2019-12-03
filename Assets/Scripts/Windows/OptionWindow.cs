@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item1 : MonoBehaviour
+public class OptionWindow : BaseWindow
 {
     // Start is called before the first frame update
     void Start()
@@ -10,14 +10,14 @@ public class Item1 : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void ShowWindow()
     {
-        
+        base.ShowWindow();
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    public override void HideWindow()
     {
-        Destroy(gameObject);
+        base.HideWindow();
     }
 }

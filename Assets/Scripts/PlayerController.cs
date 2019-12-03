@@ -7,19 +7,20 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float fSpeed = 100;
-    private Animator anim;
-    private Rigidbody rgd;
+    private Animator aAnim;
+    private Rigidbody rBody;
     private bool bRIght = true;
     [SerializeField]
     private GameObject cameraObj = null;
     private Quaternion rRotation;
 
     public float fDistance = 5;
+    public ItemInventory inventory;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        rgd = GetComponent<Rigidbody>();
+        aAnim = GetComponent<Animator>();
+        rBody = GetComponent<Rigidbody>();
         rRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
 
@@ -29,7 +30,7 @@ public class PlayerController : MonoBehaviour
         float hMove = Input.GetAxis("Horizontal") * fSpeed;
         float vMove = Input.GetAxis("Vertical") * fSpeed;
         float speed = Mathf.Abs(hMove) > Mathf.Abs(vMove) ? hMove : vMove;
-        anim.SetFloat("speed", Mathf.Abs(speed));
+        aAnim.SetFloat("speed", Mathf.Abs(speed));
         
         
         if (hMove > 0.01 && !bRIght)
@@ -45,7 +46,16 @@ public class PlayerController : MonoBehaviour
         Quaternion q = Quaternion.Euler(new Vector3(0, cameraObj.GetComponent<CameraMove>().eulerAngles_x, 0));
         transform.rotation = rRotation * q;
         Vector3 mov = new Vector3(hMove, 1, vMove) * Time.deltaTime;
-        rgd.velocity = q * mov;
+        rBody.velocity = q * mov;
    
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        IItem item = collision.collider.GetComponent<IItem>();
+
+        if(item != null)
+        {
+            inventory.AddItem(item);
+        }
     }
 }

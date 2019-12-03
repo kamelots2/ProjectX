@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemWindow : MonoBehaviour, IWindow
+public class BaseWindow : MonoBehaviour, IWindow
 {
     // Start is called before the first frame update
     void Start()
     {
         
-    }
-
-    public void ShowWindow()
-    {
-        gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -21,7 +16,13 @@ public class ItemWindow : MonoBehaviour, IWindow
         
     }
 
-    public void HideWindow()
+    public virtual void ShowWindow()
+    {
+        gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public virtual void HideWindow()
     {
         gameObject.SetActive(false);
         Time.timeScale = 1;
