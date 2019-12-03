@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     [SerializeField]
     GameObject Boss = null;
     [SerializeField]
@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     bool bIsAttack = false;
     List<List<string>> lStrData = new List<List<string>>();
 
+    // Start is called before the first frame update
     void Start()
     {
         LanguageManager.Instance.InitLanguage();

@@ -9752,7 +9752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MAINMANU
+  m_Text: Back MainMenu
 --- !u!222 &1560012621
 CanvasRenderer:
   m_ObjectHideFlags: 0
