@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField]
-    GameObject winUI;
-    [SerializeField]
-    GameObject lostUI;
+    Animator anim;
 
-
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     public void ShowWindow(int result)
     {
         gameObject.SetActive(true);
@@ -20,11 +20,13 @@ public class GameOver : MonoBehaviour
         {
             //winUI.SetActive(true);
             //win
+            anim.Play("GameOver_Win");
         }
         else
         {
             //lostUI.SetActive(true);
             //failed
+            anim.Play("GameOver_Failed");
         }
     }
 
