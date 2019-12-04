@@ -102,7 +102,7 @@ public class LevelManager : MonoBehaviour
         if (result <= 0)
         {
             //game over
-            GameOverWindow.GetComponent<GameOver>().ShowWindow(result);
+            GameOverWindow.GetComponent<GameOverWindow>().ShowWindow(result);
 
             //win
             if (result == 0)
