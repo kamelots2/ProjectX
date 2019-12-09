@@ -17,7 +17,7 @@ public class BossController : MonoBehaviour
     public BossAttackEnd_DG bossattackend;
     public QuestionEnd_DG questionend;
     [SerializeField]
-    Canvas cBossMessage= null;
+    Canvas cBossMessage = null;
 
     enum BossState
     {

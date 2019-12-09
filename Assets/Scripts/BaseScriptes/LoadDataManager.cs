@@ -13,7 +13,7 @@ public class LoadDataManager
 {
     public static void XLSX(string filename, List<List<int> > dataList)
     {
-        FileStream stream = File.Open(Application.dataPath+ "/Resources/" + filename, FileMode.Open, FileAccess.Read);
+        FileStream stream = File.Open(Application.streamingAssetsPath + "/" + filename, FileMode.Open, FileAccess.Read);
         IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
         DataSet result = excelReader.AsDataSet();
@@ -37,7 +37,7 @@ public class LoadDataManager
 
     public static void XLSX(string filename, List<List<float>> dataList)
     {
-        FileStream stream = File.Open(Application.dataPath + "/Resources/" + filename, FileMode.Open, FileAccess.Read);
+        FileStream stream = File.Open(Application.streamingAssetsPath + "/" + filename, FileMode.Open, FileAccess.Read);
         IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
         DataSet result = excelReader.AsDataSet();
@@ -61,7 +61,7 @@ public class LoadDataManager
 
     public static void XLSX(string filename, List<List<string>> dataList)
     {
-        FileStream stream = File.Open(Application.dataPath + "/Resources/" + filename, FileMode.Open, FileAccess.Read);
+        FileStream stream = File.Open(Application.streamingAssetsPath + "/" + filename, FileMode.Open, FileAccess.Read);
         IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
         DataSet result = excelReader.AsDataSet();
@@ -85,7 +85,7 @@ public class LoadDataManager
 
     public static void XLSX(string filename, Dictionary<string, string> dString)
     {
-        FileStream stream = File.Open(Application.dataPath + "/Resources/" + filename, FileMode.Open, FileAccess.Read);
+        FileStream stream = File.Open(Application.streamingAssetsPath + "/" + filename, FileMode.Open, FileAccess.Read);
         IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
         DataSet result = excelReader.AsDataSet();

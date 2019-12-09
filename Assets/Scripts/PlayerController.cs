@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float fSpeed = 100;
+    //[SerializeField]
+    private float fSpeed = 500;
     private Animator aAnim;
     private Rigidbody rBody;
     private bool bRIght = true;

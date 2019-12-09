@@ -20,13 +20,13 @@ public class GameOverWindow : MonoBehaviour
         {
             //winUI.SetActive(true);
             //win
-            anim.Play("GameOver_Win");
+            //anim.Play("GameOver_Win");
         }
         else
         {
             //lostUI.SetActive(true);
             //failed
-            anim.Play("GameOver_Failed");
+            //anim.Play("GameOver_Failed");
         }
     }
 
