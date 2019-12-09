@@ -9,23 +9,23 @@ ScriptedImporter:
     100008: hore_colored_GO/hore_colored_GO/leftleg
     100010: hore_colored_GO/hore_colored_GO/rightfoot
     100012: hore_colored_GO/hore_colored_GO/rightleg
-    100014: hore_colored_GO/hore_colored_GO/shield
-    100016: hore_colored_GO/hore_colored_GO/root
-    100018: hore_colored_GO/hore_colored_GO/root/body_1
-    100020: hore_colored_GO/hore_colored_GO/root/body_1/head_1
-    100022: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1
-    100024: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2
-    100026: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2/d3
-    100028: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1
-    100030: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2
-    100032: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2/u3
-    100034: hore_colored_GO/hore_colored_GO/root/body_1/Ll
-    100036: hore_colored_GO/hore_colored_GO/root/body_1/Ll/Lfoot
-    100038: hore_colored_GO/hore_colored_GO/root/body_1/Rl
-    100040: hore_colored_GO/hore_colored_GO/root/body_1/Rl/Rfoot
-    100042: hore_colored_GO/hore_colored_GO/root/body_1/shoulder
-    100044: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand
-    100046: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand/shield_1
+    100014: hore_colored_GO/hore_colored_GO/root
+    100016: hore_colored_GO/hore_colored_GO/root/body_1
+    100018: hore_colored_GO/hore_colored_GO/root/body_1/head_1
+    100020: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1
+    100022: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2
+    100024: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2/d3
+    100026: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1
+    100028: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2
+    100030: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2/u3
+    100032: hore_colored_GO/hore_colored_GO/root/body_1/Ll
+    100034: hore_colored_GO/hore_colored_GO/root/body_1/Ll/Lfoot
+    100036: hore_colored_GO/hore_colored_GO/root/body_1/Rl
+    100038: hore_colored_GO/hore_colored_GO/root/body_1/Rl/Rfoot
+    100040: hore_colored_GO/hore_colored_GO/root/body_1/shoulder
+    100042: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand
+    100044: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand/shield_1
+    100046: hore_colored_GO/hore_colored_GO/shield
     400000: hore_colored_GO/hore_colored_GO/Transform
     400002: hore_colored_GO/hore_colored_GO/body/Transform
     400004: hore_colored_GO/hore_colored_GO/head/Transform
@@ -33,23 +33,23 @@ ScriptedImporter:
     400008: hore_colored_GO/hore_colored_GO/leftleg/Transform
     400010: hore_colored_GO/hore_colored_GO/rightfoot/Transform
     400012: hore_colored_GO/hore_colored_GO/rightleg/Transform
-    400014: hore_colored_GO/hore_colored_GO/shield/Transform
-    400016: hore_colored_GO/hore_colored_GO/root/Transform
-    400018: hore_colored_GO/hore_colored_GO/root/body_1/Transform
-    400020: hore_colored_GO/hore_colored_GO/root/body_1/head_1/Transform
-    400022: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/Transform
-    400024: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2/Transform
-    400026: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2/d3/Transform
-    400028: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/Transform
-    400030: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2/Transform
-    400032: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2/u3/Transform
-    400034: hore_colored_GO/hore_colored_GO/root/body_1/Ll/Transform
-    400036: hore_colored_GO/hore_colored_GO/root/body_1/Ll/Lfoot/Transform
-    400038: hore_colored_GO/hore_colored_GO/root/body_1/Rl/Transform
-    400040: hore_colored_GO/hore_colored_GO/root/body_1/Rl/Rfoot/Transform
-    400042: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/Transform
-    400044: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand/Transform
-    400046: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand/shield_1/Transform
+    400014: hore_colored_GO/hore_colored_GO/root/Transform
+    400016: hore_colored_GO/hore_colored_GO/root/body_1/Transform
+    400018: hore_colored_GO/hore_colored_GO/root/body_1/head_1/Transform
+    400020: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/Transform
+    400022: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2/Transform
+    400024: hore_colored_GO/hore_colored_GO/root/body_1/head_1/d1/d2/d3/Transform
+    400026: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/Transform
+    400028: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2/Transform
+    400030: hore_colored_GO/hore_colored_GO/root/body_1/head_1/u1/u2/u3/Transform
+    400032: hore_colored_GO/hore_colored_GO/root/body_1/Ll/Transform
+    400034: hore_colored_GO/hore_colored_GO/root/body_1/Ll/Lfoot/Transform
+    400036: hore_colored_GO/hore_colored_GO/root/body_1/Rl/Transform
+    400038: hore_colored_GO/hore_colored_GO/root/body_1/Rl/Rfoot/Transform
+    400040: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/Transform
+    400042: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand/Transform
+    400044: hore_colored_GO/hore_colored_GO/root/body_1/shoulder/hand/shield_1/Transform
+    400046: hore_colored_GO/hore_colored_GO/shield/Transform
     2800000: hore_colored
     11400000: hore_colored_GO/hore_colored_GO/body/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
     11400002: hore_colored_GO/hore_colored_GO/head/MonoBehaviour-UnityEngine.Experimental.U2D.Animation.SpriteSkin
@@ -132,18 +132,18 @@ ScriptedImporter:
     compressionQualitySet: 0
     textureFormatSet: 0
   spriteImportData:
-  - name: 
+  - name: hore_colored_1
     originalName: 
-    pivot: {x: 0, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 0
-      height: 0
-    spriteID: 
+      width: 1024
+      height: 768
+    spriteID: a16ee0d8a16caa949a6e33abf28b809b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -169,14 +169,14 @@ ScriptedImporter:
     spriteID: fd513524248538e419588b1d7e028411
     spriteBone:
     - name: shield
-      position: {x: 82.74598, y: -0.000008773113, z: 8}
-      rotation: {x: 0, y: 0, z: -0.10613028, w: 0.9943523}
+      position: {x: 82.74597, y: -0.000028080449, z: 8}
+      rotation: {x: 0, y: 0, z: -0.10613042, w: 0.9943523}
       length: 84.68379
       parentId: 1
     - name: hand
       position: {x: 53.139793, y: 0.000009115092, z: 8}
-      rotation: {x: 0, y: 0, z: 0.44380945, w: 0.89612126}
-      length: 82.746025
+      rotation: {x: 0, y: 0, z: 0.4438095, w: 0.8961212}
+      length: 82.74601
       parentId: 3
     - name: body
       position: {x: 133.6782, y: -4.1857467, z: 7}
@@ -1310,14 +1310,14 @@ ScriptedImporter:
     spriteID: 168c982a2270d714f8fe75e46ef38f5d
     spriteBone:
     - name: Rl
-      position: {x: -5.4210134, y: -25.690882, z: 3}
+      position: {x: -5.4210134, y: -25.690882, z: 4}
       rotation: {x: 0, y: 0, z: -0.9904963, w: 0.13753985}
       length: 73.034256
       parentId: 3
     - name: hand
       position: {x: 53.139786, y: 0.000012862842, z: 8}
-      rotation: {x: 0, y: 0, z: 0.4438095, w: 0.8961212}
-      length: 82.746
+      rotation: {x: 0, y: 0, z: 0.4438096, w: 0.89612114}
+      length: 82.74599
       parentId: 4
     - name: head
       position: {x: 110.74353, y: -15.926316, z: 6}
@@ -1337,17 +1337,17 @@ ScriptedImporter:
     - name: Ll
       position: {x: -8.417703, y: 55.22024, z: 6}
       rotation: {x: 0, y: 0, z: 0.99757844, w: 0.06955056}
-      length: 67.45569
+      length: 67.455696
       parentId: 3
     - name: u3
-      position: {x: -96.64336, y: 122.23517, z: 6}
-      rotation: {x: 0, y: 0, z: 0.9997535, w: -0.02220506}
+      position: {x: -96.64337, y: 122.23514, z: 6}
+      rotation: {x: 0, y: 0, z: 0.9997535, w: -0.022205058}
       length: 40.978485
       parentId: -1
     - name: shield
-      position: {x: 82.74595, y: -0.00003522614, z: 8}
-      rotation: {x: 0, y: 0, z: -0.10613031, w: 0.9943523}
-      length: 84.68377
+      position: {x: 82.745964, y: -0.000051232455, z: 8}
+      rotation: {x: 0, y: 0, z: -0.106130406, w: 0.9943522}
+      length: 84.68376
       parentId: 1
     spriteOutline: []
     vertices:
@@ -1992,7 +1992,7 @@ ScriptedImporter:
         boneIndex2: 0
         boneIndex3: 0
     spritePhysicsOutline: []
-    indices: 2d0000002a0000003f0000002e000000300000002f0000002d0000003f0000002e0000002b0000002d0000002c0000002a0000002d0000002b000000290000003f0000002a000000300000002e0000003f0000003e000000340000003f0000003e00000036000000350000003e0000003f0000003b000000300000003f0000003100000032000000310000003f0000003f000000330000003200000034000000330000003f000000340000003e00000035000000280000003f000000290000003b000000260000002500000025000000240000003b00000027000000260000003b00000024000000230000003b0000003c00000022000000210000003c00000023000000220000003f00000028000000270000001f00000021000000200000001e0000003c000000210000003d0000003b0000003c0000003c0000003b000000230000001f0000001e000000210000001d0000003c0000001e0000003c0000001d0000001c0000003c0000001c0000001b0000001b0000001a0000003c000000270000003b0000003f000000050000003700000036000000000000003a0000003900000003000000020000000100000001000000000000003900000007000000360000003e0000003700000005000000380000000400000039000000380000003900000004000000010000000400000003000000010000000500000036000000060000003e00000008000000070000000700000006000000360000003e0000000a000000090000003e0000000b0000000a000000080000003e000000090000000500000004000000380000003d0000000b0000003e0000003c0000001900000018000000100000001800000011000000160000001100000017000000180000001700000011000000100000003d00000018000000190000003c0000001a0000001600000015000000120000001200000011000000160000003c000000180000003d000000100000000f0000003d0000003d0000000e0000000d0000003d0000000f0000000e0000001400000012000000150000001400000013000000120000000c0000003d0000000d0000000c0000000b0000003d0000003e0000003b0000003d000000
+    indices: 2d0000002a0000003f00000003000000020000000100000001000000000000003900000007000000360000003e0000003700000005000000380000000400000039000000380000003900000004000000010000000400000003000000010000000500000036000000060000003e00000008000000070000000700000006000000360000003e0000000a000000090000003e0000000b0000000a000000080000003e00000009000000050000000400000038000000000000003a000000390000003d0000000b0000003e000000100000001800000011000000160000001100000017000000180000001700000011000000100000003d00000018000000190000003c0000001a0000001600000015000000120000001200000011000000160000003c000000180000003d000000100000000f0000003d0000003d0000000e0000000d0000003d0000000f0000000e0000001400000012000000150000001400000013000000120000000c0000003d0000000d0000003c00000019000000180000000c0000000b0000003d0000000500000037000000360000001b0000001a0000003c0000002e000000300000002f0000002d0000003f0000002e0000002b0000002d0000002c0000002a0000002d0000002b000000290000003f0000002a000000300000002e0000003f0000003e000000340000003f0000003e00000036000000350000003e0000003f0000003b000000300000003f0000003100000032000000310000003f0000003f000000330000003200000034000000330000003f000000340000003e00000035000000270000003b0000003f000000280000003f0000002900000025000000240000003b00000027000000260000003b00000024000000230000003b0000003c00000022000000210000003c00000023000000220000003f00000028000000270000001f00000021000000200000001e0000003c000000210000003d0000003b0000003c0000003c0000003b000000230000001f0000001e000000210000001d0000003c0000001e0000003c0000001d0000001c0000003c0000001c0000001b0000003b00000026000000250000003e0000003b0000003d000000
     edges:
     - {x: 1, y: 0}
     - {x: 2, y: 1}
@@ -2070,19 +2070,19 @@ ScriptedImporter:
     spriteID: 59ef2b4142305104cbaeed0e4148c081
     spriteBone:
     - name: d3
-      position: {x: 62.666134, y: -0.0000021743203, z: 6}
-      rotation: {x: 0, y: 0, z: -0.40420303, w: 0.91466933}
-      length: 60.26275
+      position: {x: 62.666275, y: 0.00001111818, z: 6}
+      rotation: {x: 0, y: 0, z: -0.40420294, w: 0.91466933}
+      length: 60.26276
       parentId: 1
     - name: d2
-      position: {x: 55.007378, y: -0.000020909181, z: 6}
+      position: {x: 55.00742, y: 0.000018487764, z: 6}
       rotation: {x: 0, y: 0, z: 0.18038625, w: 0.98359585}
-      length: 62.666245
+      length: 62.666267
       parentId: 2
     - name: d1
       position: {x: 33.344875, y: 107.354996, z: 6}
-      rotation: {x: 0, y: 0, z: 0.97113, w: 0.23855089}
-      length: 55.007366
+      rotation: {x: 0, y: 0, z: 0.97113, w: 0.23855099}
+      length: 55.007423
       parentId: 3
     - name: head
       position: {x: 263.0405, y: 97.08319, z: 6}
@@ -2097,11 +2097,11 @@ ScriptedImporter:
     - name: u2
       position: {x: 70.761185, y: 0.00003621519, z: 6}
       rotation: {x: 0, y: 0, z: 0.120925836, w: 0.99266154}
-      length: 61.627644
+      length: 61.627674
       parentId: 4
     - name: u3
-      position: {x: 61.627724, y: -0.000023563603, z: 6}
-      rotation: {x: 0, y: 0, z: -0.47213897, w: 0.8815242}
+      position: {x: 61.62778, y: -0.0000050932576, z: 6}
+      rotation: {x: 0, y: 0, z: -0.4721389, w: 0.88152415}
       length: 40.978485
       parentId: 5
     - name: root
@@ -3230,18 +3230,18 @@ ScriptedImporter:
     spriteID: aa45a1d3ad3bbda4a88f142037877eed
     spriteBone:
     - name: Lfoot
-      position: {x: 67.45571, y: 0.00005525589, z: 4}
-      rotation: {x: 0, y: 0, z: 0.088002, w: 0.99612033}
+      position: {x: 67.45574, y: 0.00006060631, z: 4}
+      rotation: {x: 0, y: 0, z: 0.088001914, w: 0.9961204}
       length: 50.03541
       parentId: 1
     - name: Ll
       position: {x: 46.53235, y: 131.63681, z: 6}
       rotation: {x: 0, y: 0, z: 0.7665907, w: -0.64213604}
-      length: 67.455696
+      length: 67.4557
       parentId: -1
     - name: u3
-      position: {x: -72.64337, y: 206.23517, z: 6}
-      rotation: {x: 0, y: 0, z: 0.9997535, w: -0.02220506}
+      position: {x: -72.64337, y: 206.23514, z: 6}
+      rotation: {x: 0, y: 0, z: 0.9997535, w: -0.022205058}
       length: 40.978485
       parentId: -1
     spriteOutline: []
@@ -3794,7 +3794,7 @@ ScriptedImporter:
       length: 41.190163
       parentId: 1
     - name: Rl
-      position: {x: 17.498962, y: 131.63681, z: 3}
+      position: {x: 17.498962, y: 131.63681, z: 4}
       rotation: {x: 0, y: 0, z: -0.6177915, w: 0.78634197}
       length: 73.03429
       parentId: -1
@@ -4281,7 +4281,7 @@ ScriptedImporter:
         boneIndex2: 0
         boneIndex3: 0
     spritePhysicsOutline: []
-    indices: 22000000210000002000000023000000200000001f0000001d0000001c0000001e0000001f0000001e0000002e0000002300000022000000200000002500000027000000260000001f0000002e00000025000000240000002300000025000000250000002e0000002b0000002d0000002c0000002e000000230000001f000000250000002e0000001e0000001c0000002e0000001b0000001a000000190000002d0000001a000000180000002d000000190000002d00000018000000170000001b0000002e0000001c0000001600000015000000170000002d0000001700000015000000140000002d0000001500000014000000130000002d000000120000002d00000013000000110000002d000000120000002e0000001a0000002d000000250000002b0000002700000029000000280000002b0000002a000000290000002f0000002b0000002f00000029000000000000002a0000002f00000001000000000000002f0000002c0000002f0000002b000000270000002b000000280000000200000001000000040000000300000002000000040000002f000000060000000500000005000000040000002f00000004000000010000002f00000007000000060000002f0000000e0000000d0000002c0000000c0000002c0000000d000000100000000e0000002c00000011000000100000002c0000000f0000000e000000100000002c0000002d00000011000000090000002c0000000a000000080000002f000000090000000c0000000b0000002c0000000b0000000a0000002c000000090000002f0000002c00000008000000070000002f0000002b0000002e0000002c000000
+    indices: 2200000021000000200000002b0000002f00000029000000000000002a0000002f00000001000000000000002f0000002c0000002f0000002b000000270000002b000000280000000200000001000000040000000300000002000000040000002f000000060000000500000005000000040000002f00000004000000010000002f0000002a000000290000002f00000007000000060000002f0000000c0000002c0000000d000000100000000e0000002c00000011000000100000002c0000000f0000000e000000100000002c0000002d00000011000000090000002c0000000a000000080000002f000000090000000c0000000b0000002c0000000b0000000a0000002c000000090000002f0000002c0000000e0000000d0000002c00000008000000070000002f00000029000000280000002b0000002e0000001a0000002d00000023000000200000001f0000001d0000001c0000001e0000001f0000001e0000002e0000002300000022000000200000002500000027000000260000001f0000002e00000025000000240000002300000025000000250000002e0000002b0000002d0000002c0000002e000000230000001f00000025000000250000002b000000270000002e0000001e0000001c000000190000002d0000001a000000180000002d000000190000002d00000018000000170000001b0000002e0000001c0000001600000015000000170000002d0000001700000015000000140000002d0000001500000014000000130000002d000000120000002d00000013000000110000002d000000120000002e0000001b0000001a0000002b0000002e0000002c000000
     edges:
     - {x: 1, y: 0}
     - {x: 2, y: 1}
@@ -4343,18 +4343,18 @@ ScriptedImporter:
     spriteID: 20b17a4fecda17548aeb55861ac8156b
     spriteBone:
     - name: Lfoot
-      position: {x: 67.455696, y: 0.00005240886, z: 4}
-      rotation: {x: 0, y: 0, z: 0.088002, w: 0.99612033}
+      position: {x: 67.45576, y: 0.00006310971, z: 4}
+      rotation: {x: 0, y: 0, z: 0.088001914, w: 0.9961204}
       length: 50.03541
       parentId: 1
     - name: Ll
       position: {x: 54.53235, y: 75.63684, z: 6}
       rotation: {x: 0, y: 0, z: 0.7665907, w: -0.64213604}
-      length: 67.455696
+      length: 67.4557
       parentId: -1
     - name: u3
-      position: {x: -64.64337, y: 150.23517, z: 6}
-      rotation: {x: 0, y: 0, z: 0.9997535, w: -0.02220506}
+      position: {x: -64.64337, y: 150.2351, z: 6}
+      rotation: {x: 0, y: 0, z: 0.9997535, w: -0.022205058}
       length: 40.978485
       parentId: -1
     spriteOutline: []
@@ -4934,7 +4934,7 @@ ScriptedImporter:
       length: 102.81638
       parentId: -1
     - name: Rl
-      position: {x: -5.42104, y: -25.690876, z: 3}
+      position: {x: -5.42104, y: -25.690876, z: 4}
       rotation: {x: 0, y: 0, z: -0.9904963, w: 0.13753985}
       length: 73.03426
       parentId: 3
@@ -5456,7 +5456,7 @@ ScriptedImporter:
         boneIndex2: 0
         boneIndex3: 0
     spritePhysicsOutline: []
-    indices: 28000000270000002f00000009000000300000000a000000300000000d0000000c0000000c0000000a000000300000000a0000000c0000000b0000000700000030000000080000000e0000000d000000300000003100000022000000210000002000000031000000210000002e000000200000001f0000003100000024000000230000001e0000002e0000001f0000002e000000160000001500000011000000100000003200000030000000320000000f0000002e00000014000000130000003200000013000000120000001100000032000000120000000f00000032000000100000000500000004000000300000000200000030000000030000000600000005000000300000000700000006000000300000002f000000320000003000000030000000090000000800000004000000030000003000000002000000010000002f00000031000000250000002400000001000000000000002f0000002f0000002c0000002b0000002d0000002c0000002f0000002a0000002f0000002b000000320000002f00000031000000310000002f000000250000000f0000000e0000003000000015000000140000002e000000160000002e000000170000002e000000190000001800000018000000170000002e000000320000002e00000013000000310000002300000022000000310000002e000000320000001d0000002e0000001e0000001c0000002e0000001d0000001b0000002e0000001c0000001b0000001a0000002e0000001a000000190000002e0000002f00000029000000280000002f00000027000000260000002f00000026000000250000002a000000290000002f000000000000002d0000002f00000031000000200000002e00000030000000020000002f000000
+    indices: 28000000270000002f0000002f0000002c0000002b0000002d0000002c0000002f0000002a0000002f0000002b000000320000002f00000031000000310000002f000000250000000f0000000e0000003000000015000000140000002e000000160000002e000000170000002e000000190000001800000018000000170000002e000000320000002e00000013000000310000002300000022000000310000002e000000320000001d0000002e0000001e0000001c0000002e0000001d0000001b0000002e0000001c0000001b0000001a0000002e0000001a000000190000002e0000002f00000029000000280000002f00000027000000260000002f00000026000000250000002a000000290000002f000000000000002d0000002f00000001000000000000002f00000031000000250000002400000002000000010000002f00000004000000030000003000000009000000300000000a000000300000000d0000000c0000000c0000000a000000300000000a0000000c0000000b0000000700000030000000080000000e0000000d000000300000003100000022000000210000002000000031000000210000002e000000200000001f0000003100000024000000230000001e0000002e0000001f00000031000000200000002e0000002e000000160000001500000030000000320000000f0000002e00000014000000130000003200000013000000120000001100000032000000120000000f00000032000000100000000500000004000000300000000200000030000000030000000600000005000000300000000700000006000000300000002f000000320000003000000030000000090000000800000011000000100000003200000030000000020000002f000000
     edges:
     - {x: 0, y: 1}
     - {x: 2, y: 1}
@@ -5580,11 +5580,11 @@ ScriptedImporter:
       parentId: 5
     - name: Ll
       position: {x: -8.417711, y: 55.22022, z: 6}
-      rotation: {x: 0, y: -0, z: 0.99757844, w: 0.069550544}
-      length: 67.455696
+      rotation: {x: 0, y: -0, z: 0.99757844, w: 0.06955055}
+      length: 67.4557
       parentId: 0
     - name: Rl
-      position: {x: -5.421012, y: -25.690884, z: 3}
+      position: {x: -5.421012, y: -25.690884, z: 4}
       rotation: {x: 0, y: -0, z: -0.9904963, w: 0.13753983}
       length: 73.03426
       parentId: 0
@@ -5594,8 +5594,8 @@ ScriptedImporter:
       length: 41.19015
       parentId: 2
     - name: Lfoot
-      position: {x: 67.455696, y: 0.0000111137915, z: 4}
-      rotation: {x: 0, y: 0, z: 0.08800194, w: 0.99612033}
+      position: {x: 67.4557, y: 0.000010954414, z: 4}
+      rotation: {x: 0, y: 0, z: 0.088001944, w: 0.99612033}
       length: 50.035404
       parentId: 1
     - name: root
@@ -5616,25 +5616,25 @@ ScriptedImporter:
     - name: u2
       position: {x: 70.7612, y: -0.000020351874, z: 6}
       rotation: {x: 0, y: 0, z: 0.12092579, w: 0.99266154}
-      length: 61.627644
+      length: 61.627678
       parentId: 7
     - name: d1
       position: {x: 33.344887, y: 107.35499, z: 6}
-      rotation: {x: 0, y: -0, z: 0.97113, w: 0.23855092}
-      length: 55.00738
+      rotation: {x: 0, y: -0, z: 0.97112995, w: 0.23855104}
+      length: 55.00744
       parentId: 6
     - name: d2
-      position: {x: 55.00742, y: -0.000009589279, z: 6}
-      rotation: {x: 0, y: 0, z: 0.18038623, w: 0.98359585}
-      length: 62.66626
+      position: {x: 55.007416, y: 0.00000923323, z: 6}
+      rotation: {x: 0, y: 0, z: 0.18038629, w: 0.98359585}
+      length: 62.66627
       parentId: 9
     - name: d3
-      position: {x: 62.66628, y: -0.000005327459, z: 6}
-      rotation: {x: 0, y: 0, z: -0.4042031, w: 0.9146693}
+      position: {x: 62.666267, y: 0.000021160275, z: 6}
+      rotation: {x: 0, y: 0, z: -0.404203, w: 0.9146694}
       length: 60.26276
       parentId: 10
     - name: u3
-      position: {x: 61.627666, y: -0.000004406158, z: 6}
+      position: {x: 61.6277, y: -0.0000017031798, z: 6}
       rotation: {x: 0, y: 0, z: -0.4721389, w: 0.8815242}
       length: 40.97849
       parentId: 8
@@ -5645,12 +5645,12 @@ ScriptedImporter:
       parentId: 0
     - name: hand
       position: {x: 53.1398, y: -0.0000042890024, z: 8}
-      rotation: {x: 0, y: 0, z: 0.4438095, w: 0.8961212}
-      length: 82.746
+      rotation: {x: 0, y: 0, z: 0.44380957, w: 0.89612114}
+      length: 82.74599
       parentId: 13
     - name: shield
-      position: {x: 82.74599, y: -0.0000043936807, z: 8}
-      rotation: {x: 0, y: 0, z: -0.10613029, w: 0.9943522}
+      position: {x: 82.74598, y: -0.000011528817, z: 8}
+      rotation: {x: 0, y: 0, z: -0.106130384, w: 0.9943523}
       length: 84.68376
       parentId: 14
     parts:
@@ -5705,37 +5705,37 @@ ScriptedImporter:
       bones: 03000000050000000200000000000000
     dimension: {x: 0, y: 0}
   boneGOs:
-  - go: {fileID: 100018, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 0
-  - go: {fileID: 100034, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 1
-  - go: {fileID: 100038, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 2
-  - go: {fileID: 100040, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 3
-  - go: {fileID: 100036, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 4
   - go: {fileID: 100016, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 5
-  - go: {fileID: 100020, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 6
-  - go: {fileID: 100028, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 7
-  - go: {fileID: 100030, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 8
-  - go: {fileID: 100022, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 9
-  - go: {fileID: 100024, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 10
-  - go: {fileID: 100026, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
-    index: 11
+    index: 0
   - go: {fileID: 100032, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 1
+  - go: {fileID: 100036, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 2
+  - go: {fileID: 100038, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 3
+  - go: {fileID: 100034, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 4
+  - go: {fileID: 100014, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 5
+  - go: {fileID: 100018, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 6
+  - go: {fileID: 100026, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 7
+  - go: {fileID: 100028, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 8
+  - go: {fileID: 100020, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 9
+  - go: {fileID: 100022, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 10
+  - go: {fileID: 100024, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+    index: 11
+  - go: {fileID: 100030, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
     index: 12
-  - go: {fileID: 100042, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+  - go: {fileID: 100040, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
     index: 13
-  - go: {fileID: 100044, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+  - go: {fileID: 100042, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
     index: 14
-  - go: {fileID: 100046, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
+  - go: {fileID: 100044, guid: 9376897fa392c6240aa8db8fbd405e97, type: 3}
     index: 15
   generateGOHierarchy: 0
   textureAssetName: hore_colored

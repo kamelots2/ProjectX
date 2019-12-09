@@ -8,6 +8,7 @@ public class LanguageManager : Singleton<LanguageManager>
 
     public void InitLanguage()
     {
+        dLanguage.Clear();
         LoadDataManager.XLSX("Language.xlsx", dLanguage);
     }
 

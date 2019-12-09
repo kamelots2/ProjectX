@@ -1,15 +1,10 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Text.RegularExpressions;
-using System.IO;
+﻿using System.IO;
 using Excel;
 using System.Data;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class LoadDataManager
+public class LoadDataManager : Singleton<LoadDataManager>
 {
     public static void XLSX(string filename, List<List<int> > dataList)
     {
@@ -41,7 +36,7 @@ public class LoadDataManager
         IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
         DataSet result = excelReader.AsDataSet();
-
+        
         int columns = result.Tables[0].Columns.Count;
         int rows = result.Tables[0].Rows.Count;
 
@@ -65,7 +60,7 @@ public class LoadDataManager
         IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
 
         DataSet result = excelReader.AsDataSet();
-
+        
         int columns = result.Tables[0].Columns.Count;
         int rows = result.Tables[0].Rows.Count;
 

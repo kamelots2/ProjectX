@@ -89,7 +89,7 @@ public class LevelManager : MonoBehaviour
 
     void ReadData(string filename)
     {
-        LoadDataManager.XLSX(filename, lStrData);
+        //LoadDataManager.XLSX(filename, lStrData);
     }
 
     private void OnDestroy()
