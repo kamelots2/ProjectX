@@ -13,6 +13,8 @@ public interface IItem
     Sprite Image { get; }
 
     void OnPickup();
+
+    void UseItem();
 }
 
 public class InventoryEventArgs : EventArgs
@@ -50,6 +52,10 @@ public class ItemBase : MonoBehaviour, IItem
         {
             return image;
         }
+        set
+        {
+            image = Image;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,5 +66,10 @@ public class ItemBase : MonoBehaviour, IItem
     public void OnPickup()
     {
         gameObject.SetActive(false);
+    }
+
+    public virtual void UseItem()
+    {
+
     }
 }
