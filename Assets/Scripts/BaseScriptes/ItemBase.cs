@@ -15,6 +15,8 @@ public interface IItem
     void OnPickup();
 
     void UseItem();
+
+    int GetItemType();
 }
 
 public class InventoryEventArgs : EventArgs
@@ -44,6 +46,10 @@ public class ItemBase : MonoBehaviour, IItem
         {
             return id;
         }
+        set
+        {
+            id = value;
+        }
     }
     [SerializeField]
     Sprite image = null;
@@ -68,5 +74,10 @@ public class ItemBase : MonoBehaviour, IItem
     public virtual void UseItem()
     {
 
+    }
+
+    public int GetItemType()
+    {    
+        return id / 1000;
     }
 }
