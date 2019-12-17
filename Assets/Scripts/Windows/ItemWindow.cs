@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemWindow : BaseWindow
 {
@@ -24,6 +25,17 @@ public class ItemWindow : BaseWindow
 
     private void ItemAdded(object sender, InventoryEventArgs e)
     {
-        
+        Transform itemBG = transform.Find("IItemBG").Find("ItemGroup");
+        foreach(Transform slot in itemBG)
+        {
+            Image img = slot.GetChild(0).GetComponent<Image>();
+            if(!img.sprite)
+            {
+                img.enabled = true;
+                img.sprite = e.item.Image;
+
+                break;
+            }
+        }
     }
 }

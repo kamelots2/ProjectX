@@ -45,16 +45,13 @@ public class ItemBase : MonoBehaviour, IItem
             return id;
         }
     }
+    [SerializeField]
     Sprite image = null;
     public virtual Sprite Image
     {
         get
         {
             return image;
-        }
-        set
-        {
-            image = Image;
         }
     }
 

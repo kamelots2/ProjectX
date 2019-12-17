@@ -12,11 +12,6 @@ public class Mushroom : ItemBase
         }
     }
 
-    public override Sprite Image {
-        get => base.Image;
-        set => base.Image = value;
-    }
-
     public override void UseItem()
     {
         base.UseItem();

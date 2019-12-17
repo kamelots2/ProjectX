@@ -68,11 +68,11 @@ public class BossController : MonoBehaviour
         bossinfo.iMaxAV = int.Parse(lBossData[0][1]);
         bossinfo.iAV = int.Parse(lBossData[1][1]);
         bossinfo.atk = int.Parse(lBossData[2][1]);
-        bossinfo.skillAtk = bossinfo.atk * 3;
+        bossinfo.skillAtk = bossinfo.atk * 2;
         bossinfo.iCurrentAV = 0;
         //UpdateBossiAV((float)bossinfo.iCurrentAV / bossinfo.iMaxAV);
         iTextIndex = 0;
-        iSkillLv = 0;
+        iSkillLv = 1;
         LoadDataManager.XLSX(lBossData[3][1], lBossText1);
         LoadDataManager.XLSX(lBossData[4][1], lBossText2);
     }
@@ -175,7 +175,7 @@ public class BossController : MonoBehaviour
     void AttackEvent()
     {
         if (bossattackevent != null)
-            bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.skillAtk, bIsSkill);
+            bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.skillAtk*iSkillLv, bIsSkill);
         if (bIsSkill)
             bIsSkill = false;
     }
