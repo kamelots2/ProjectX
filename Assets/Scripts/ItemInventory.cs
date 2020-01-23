@@ -23,7 +23,7 @@ public class ItemInventory : MonoBehaviour
     {
         if(lItems.Count < SLOTS)
         {
-            Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+            //Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
 
             item.OnPickup();
 

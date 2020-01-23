@@ -29,6 +29,7 @@ public class InventoryEventArgs : EventArgs
     public IItem item;
 }
 
+
 public class ItemBase : MonoBehaviour, IItem
 {
     public virtual string Name

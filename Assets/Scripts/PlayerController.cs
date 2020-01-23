@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        aAnim = GetComponent<Animator>();
+        aAnim = transform.GetChild(0).GetComponent<Animator>();
         rBody = GetComponent<Rigidbody>();
         rRotation = Quaternion.Euler(new Vector3(0, 0, 0));
     }
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
             rRotation = Quaternion.Euler(new Vector3(0, 180, 0));
         }
         Quaternion q = Quaternion.Euler(new Vector3(0, cameraObj.GetComponent<CameraMove>().eulerAngles_x, 0));
-        transform.rotation = rRotation * q;
+        transform.rotation = Quaternion.Lerp(transform.rotation, rRotation*q, 1);
         Vector3 mov = new Vector3(output.x, 0, output.z) * fSpeed * Time.fixedDeltaTime;
         mov.y = rBody.velocity.y;
         rBody.velocity = q * mov;

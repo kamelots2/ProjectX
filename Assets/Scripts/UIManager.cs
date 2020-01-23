@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
             float x = Random.Range(LeftTop.transform.position.x, RightDown.transform.position.x);
             float y = Random.Range(LeftTop.transform.position.y, RightDown.transform.position.y);
 
-            lButton[i].GetComponent<ClickButton>().Init(0.15f, 0+i*0.5f);
+            lButton[i].GetComponent<ClickButton>().Init(0.1f, 0+i*0.5f);
             lButton[i].transform.position = new Vector3(x, y, 0);
         }
     }

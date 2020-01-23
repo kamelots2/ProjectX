@@ -30,7 +30,7 @@ public class HeroController : MonoBehaviour
         SetDefense(bIsDef);
     }
 
-    void DefEnd()
+    public void DefEnd()
     {
         iTween.MoveTo(gameObject, iTween.Hash("x", 0.301f, "z", -9.191f, "time", 1f, "delay", 1f));
         SetDefense(false);
@@ -38,6 +38,6 @@ public class HeroController : MonoBehaviour
 
     void SetDefense(bool bIsDefense)
     {
-        GetComponent<Animator>().SetBool("Def", bIsDefense);
+        transform.GetChild(0).GetComponent<Animator>().SetBool("Def", bIsDefense);
     }
 }

@@ -121,24 +121,26 @@ public class BossController : MonoBehaviour
         UpdateBossiAV((float)bossinfo.iCurrentAV / bossinfo.iMaxAV);
         if(bAttack)
         {
-            iTween.MoveTo(gameObject, iTween.Hash("x", 0.65f, "z", -9f, "time", 1f, "oncomplete", "MoveEnd",
+            iTween.MoveTo(gameObject, iTween.Hash("x", 0.05f, "z", -9f, "time", 1f, "oncomplete", "MoveEnd",
             "oncompletetarget", gameObject));
         }
         else
         {
-            iTween.MoveTo(gameObject, iTween.Hash("x", 0.25f, "z", -9f, "time", 1f, "oncomplete", "MoveEnd",
+            iTween.MoveTo(gameObject, iTween.Hash("x", -0.25f, "z", -9f, "time", 1f, "oncomplete", "MoveEnd",
             "oncompletetarget", gameObject));
         }
     }
 
     void MoveEnd()
     {
-        anim.SetBool("Attack", true);
+        transform.GetChild(0).GetComponent<Animator>().SetBool("Attack", true);
+        //anim.SetBool("Attack", true);
     }
 
-    void AttackAnimEnd()
+    public void AttackAnimEnd()
     {
-        anim.SetBool("Attack", false);
+        transform.GetChild(0).GetComponent<Animator>().SetBool("Attack", false);
+        //anim.SetBool("Attack", false);
         iTween.MoveTo(gameObject, iTween.Hash("x", -1.191f, "z", -8.237f, "time", 1f, "delay", 0.3f, "oncomplete", "AttackEnd",
             "oncompletetarget", gameObject));
     }
@@ -159,6 +161,7 @@ public class BossController : MonoBehaviour
 
     void SayEnd()
     {
+        cBossMessage.gameObject.SetActive(false);
         if (bosssayend != null)
             bosssayend();
     }
@@ -167,12 +170,13 @@ public class BossController : MonoBehaviour
     {
         if (iTextIndex < lBossText1.Count)
         {
+            cBossMessage.gameObject.SetActive(true);
             sayTime = cBossMessage.GetComponent<BossMessageController>().ShowText(lBossText1[iTextIndex++][0]);
             StartCoroutine("SayOK"); 
         }
     }
 
-    void AttackEvent()
+    public void AttackEvent()
     {
         if (bossattackevent != null)
             bossattackevent(bIsSkill ? bossinfo.atk:bossinfo.skillAtk*iSkillLv, bIsSkill);
@@ -269,6 +273,7 @@ public class BossController : MonoBehaviour
 
     public void ShowQuestion()
     {
+        cBossMessage.gameObject.SetActive(true);
         sayTime = cBossMessage.GetComponent<BossMessageController>().ShowText(lBossText2[iTextIndex][0]);
         lQuestionText.RemoveAt(0);
         if (iTextIndex < lBossText2.Count)

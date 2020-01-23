@@ -10,7 +10,9 @@ public class ClickButton : MonoBehaviour
     [SerializeField]
     GameObject img = null;
     [SerializeField]
-    GameObject perfectimg = null;
+    GameObject perfectimeHi = null;
+    [SerializeField]
+    GameObject perfectimeLo = null;
     private bool bIsVisible;
     private float perfecttime;
     private float showtime;
@@ -41,7 +43,8 @@ public class ClickButton : MonoBehaviour
         bIsPerfect = false;
         gameObject.SetActive(true);
         root.SetActive(false);
-        perfectimg.transform.localScale = Vector3.one * (1f + perfecttime);
+        perfectimeHi.transform.localScale = Vector3.one * (1f + perfecttime);
+        perfectimeLo.transform.localScale = Vector3.one * (1f - perfecttime);
     }
 
     // Update is called once per frame
